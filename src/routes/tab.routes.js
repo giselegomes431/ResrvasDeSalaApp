@@ -11,6 +11,8 @@ import Stacks from "./stacks";
 import Gestor from "../screens/Gestor";
 import Consultar from "../screens/Consultar";
 
+import ButtonNew from "../components/ButtonNew";
+
 const Tab = createBottomTabNavigator();
 
 export default function TabRoutes(){
@@ -22,7 +24,11 @@ export default function TabRoutes(){
                                             bottom:16,
                                             right:16,
                                             left:16,
-                                            borderRadius:16
+                                            borderRadius:16,
+                                            borderTopColor: 'transparent',
+                                            paddingBottom: 5,
+                                            paddingTop: 5,
+
                                         }} } >
             <Tab.Screen 
                 name="espaco"
@@ -37,7 +43,7 @@ export default function TabRoutes(){
                 name="manutencao"
                 component={Manutencao}
                 options={{
-                    tabBarIcon: ({color, size}) => <FontAwesome5 name="wrench" size={size} color={color} />,
+                    tabBarIcon: ({color, size}) => <FontAwesome5 name="wrench" size={size} color={color}  />,
                     tabBarLabel:"Manutenção"
                 }}
             />   
@@ -46,8 +52,8 @@ export default function TabRoutes(){
                 name="adicionar"
                 component={Stacks}
                 options={{
-                    tabBarIcon: ({color, size}) => <AntDesign name="pluscircle" size={size} color={color} />,
-                    tabBarLabel:"Adicionar"
+                    tabBarIcon: ({focused, color, size}) => (<ButtonNew size={size} color={color} focused={focused}/>),
+                    tabBarLabel:"",
                 }}
             /> 
 
