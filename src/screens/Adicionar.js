@@ -17,6 +17,21 @@ export default function Adicionar({navigation}) {
                 >
                   Professor</Text>
             </TouchableOpacity> 
+
+            <TouchableOpacity
+            style={styles.buttonCadastrar}
+            onPress={() => navigation.navigate('CadastrarSetor')}
+          >
+            <Text style={styles.buttonText}>Setor</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.buttonCadastrar}
+            onPress={() => navigation.navigate('Espaco')}
+          >
+            <Text style={styles.buttonText}>Espaço</Text>
+          </TouchableOpacity>
+
         </View>
       </ImageBackground>
     </View>

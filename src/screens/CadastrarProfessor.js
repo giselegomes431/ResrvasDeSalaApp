@@ -5,7 +5,9 @@ import { StyleSheet,
         ImageBackground,
         TextInput,
         TouchableOpacity,
-        Vibration,} from 'react-native';
+        Vibration,
+        Pressable,
+        Keyboard} from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
@@ -31,7 +33,7 @@ export default function CadastrarProfessor() {
     }
 
   return (
-    <View style={styles.container}>
+        <Pressable onPress={Keyboard.dismiss} style={styles.container}>
       <ImageBackground
         source={require('../assets/Fundo.png')}
         style={styles.imageBackground}
@@ -91,7 +93,7 @@ export default function CadastrarProfessor() {
         </View>
 
         </ImageBackground>
-    </View>
+        </Pressable>
   );
 }
 
