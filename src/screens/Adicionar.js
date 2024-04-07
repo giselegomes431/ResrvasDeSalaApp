@@ -27,7 +27,7 @@ export default function Adicionar({navigation}) {
 
           <TouchableOpacity
             style={styles.buttonCadastrar}
-            onPress={() => navigation.navigate('Espaco')}
+            onPress={() => navigation.navigate('stacksEspaco')}
           >
             <Text style={styles.buttonText}>Espaço</Text>
           </TouchableOpacity>

@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import Checkbox from 'expo-checkbox';
 import { StyleSheet, 
         Text, 
         View, 
@@ -7,15 +8,17 @@ import { StyleSheet,
         TouchableOpacity,
         Vibration,
         Pressable,
-        Keyboard} from 'react-native';
+        Keyboard,
+} from 'react-native';
 
 
-export default function CadastrarProfessor() {
+export default function CadastrarEspaço({navigation}) {
 
   const [errorMessage, setErrorMessage] = useState(null)
   const [nome, setNome] = useState("")
   const [email, setEmail] = useState("")
   const [telefone, setTelefone] = useState("")
+  const [isChecked, setChecked] = useState(false)
 
   function verification(){
         if(!nome.trim() || !email.trim() || !telefone.trim()){
@@ -31,6 +34,7 @@ export default function CadastrarProfessor() {
         verification()
     }
 
+
   return (
         <Pressable onPress={Keyboard.dismiss} style={styles.container}>
       <ImageBackground
@@ -38,52 +42,62 @@ export default function CadastrarProfessor() {
         style={styles.imageBackground}
         >
             <View >
-            <Text style={styles.textTitle1}>Cadastrar</Text>
-            <Text style={styles.textTitle2}>Professor</Text>
+            <Text style={styles.textTitle1}>Cadastrar Espaço</Text>
+            <Text style={styles.textTitle2}>Acessibilidade</Text>
         </View>
 
         <View style={styles.formContext}>
             <View style={styles.box}>
-                <Text style={styles.textForm}>Nome:</Text>
+                <Text style={styles.textForm}>Possui rampa?</Text>
                 <Text style={styles.errorMessage}>{errorMessage}</Text>
             </View>
-            <TextInput
-                placeholder="Ex.: João"
-                keyboardType="ascii-capable"
-                style={styles.input}
-                onChangeText={setNome}
-                value={nome}
-                />
+            <View style={styles.section}>
+        <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+        <Text style={styles.textCheckBox}>Sim</Text>
+      </View>
+
+      <View style={styles.section}>
+        <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+        <Text style={styles.textCheckBox}>Não</Text>
+      </View>
+
+      <View style={styles.section}>
+        <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+        <Text style={styles.textCheckBox}>Não há necessidade</Text>
+      </View>
 
             <View style={styles.box}>
-                <Text style={styles.textForm}>Email:</Text>
+                <Text style={styles.textForm2}>Possui elevador?</Text>
                 <Text style={styles.errorMessage}>{errorMessage}</Text>
             </View>
-            <TextInput
-                placeholder="Ex.: joao@uesb.edu.br"
-                keyboardType="email-address"
-                style={styles.input}
-                onChangeText={setEmail}
-                value={email}
-                />
 
-            <View style={styles.box}>
-                <Text style={styles.textForm}>Telefone:</Text>
-                <Text style={styles.errorMessage}>{errorMessage}</Text>
-            </View>
-            <TextInput 
-                placeholder="Ex.: 12345678901"
-                keyboardType="numeric"
-                style={styles.input}
-                onChangeText={setTelefone}
-                value={telefone}
-                />
+            <View style={styles.section}>
+        <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+        <Text style={styles.textCheckBox}>Sim</Text>
+      </View>
+
+      <View style={styles.section}>
+        <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+        <Text style={styles.textCheckBox}>Não</Text>
+      </View>
+
+      <View style={styles.section}>
+        <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+        <Text style={styles.textCheckBox}>Não há necessidade</Text>
+      </View> 
 
             <TouchableOpacity
                 style={styles.buttonCadastrar}
             >
-                <Text style={styles.buttonText} onPress={() => {validation()}}>Cadastrar</Text>
+                <Text style={styles.buttonText} onPress={() => {validation()}}
+                >Cadastrar</Text>
             </TouchableOpacity>
+
+            <TouchableOpacity
+            style={styles.button}>
+                <Text style={styles.buttonCancelar} onPress={() => navigation.navigate('CadastrarEspaco')}>Voltar</Text>
+            </TouchableOpacity>
+
         </View>
 
         </ImageBackground>
@@ -108,6 +122,7 @@ textTitle2: {
     color:"#FFFFFF",
     fontSize:50,
     textAlign:"center",
+    marginBottom:30
 },
 
 iconTitle: {
@@ -127,14 +142,22 @@ iconTitle: {
     backgroundColor:"#FFFFFF",
     paddingTop:20,
     width:"85%",
-    height:"70%",
+    height:"63%",
     borderRadius:30,
+    marginBottom:70
 },
 
 textForm: {
     color:"#0805A3",
     fontSize:22,
     paddingLeft:20,
+},
+
+textForm2: {
+    color:"#0805A3",
+    fontSize:22,
+    paddingLeft:20,
+    marginTop:15
 },
 
 input: {
@@ -185,5 +208,20 @@ errorMessage: {
 
 box: {
     flexDirection:"row",
-}
+},
+
+section: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft:20,
+  },
+
+  checkbox: {
+    margin: 8,
+    borderRadius: 15,
+  },
+
+  textCheckBox: {
+    color: "#211DFF"
+  }
 });

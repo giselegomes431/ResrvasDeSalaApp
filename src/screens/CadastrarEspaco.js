@@ -10,7 +10,7 @@ import { StyleSheet,
         Keyboard} from 'react-native';
 
 
-export default function CadastrarProfessor() {
+export default function CadastrarEspaço({navigation}) {
 
   const [errorMessage, setErrorMessage] = useState(null)
   const [nome, setNome] = useState("")
@@ -38,17 +38,17 @@ export default function CadastrarProfessor() {
         style={styles.imageBackground}
         >
             <View >
-            <Text style={styles.textTitle1}>Cadastrar</Text>
-            <Text style={styles.textTitle2}>Professor</Text>
+            <Text style={styles.textTitle1}>Cadastrar Espaço</Text>
+            <Text style={styles.textTitle2}>Localização</Text>
         </View>
 
         <View style={styles.formContext}>
             <View style={styles.box}>
-                <Text style={styles.textForm}>Nome:</Text>
+                <Text style={styles.textForm}>Módulo:</Text>
                 <Text style={styles.errorMessage}>{errorMessage}</Text>
             </View>
             <TextInput
-                placeholder="Ex.: João"
+                placeholder="Ex.: DCT"
                 keyboardType="ascii-capable"
                 style={styles.input}
                 onChangeText={setNome}
@@ -56,34 +56,24 @@ export default function CadastrarProfessor() {
                 />
 
             <View style={styles.box}>
-                <Text style={styles.textForm}>Email:</Text>
+                <Text style={styles.textForm}>Nome da sala:</Text>
                 <Text style={styles.errorMessage}>{errorMessage}</Text>
             </View>
             <TextInput
-                placeholder="Ex.: joao@uesb.edu.br"
-                keyboardType="email-address"
+                placeholder="Ex.: Sala 01"
+                keyboardType="ascii-capable"
                 style={styles.input}
                 onChangeText={setEmail}
                 value={email}
                 />
 
-            <View style={styles.box}>
-                <Text style={styles.textForm}>Telefone:</Text>
-                <Text style={styles.errorMessage}>{errorMessage}</Text>
-            </View>
-            <TextInput 
-                placeholder="Ex.: 12345678901"
-                keyboardType="numeric"
-                style={styles.input}
-                onChangeText={setTelefone}
-                value={telefone}
-                />
 
             <TouchableOpacity
                 style={styles.buttonCadastrar}
             >
-                <Text style={styles.buttonText} onPress={() => {validation()}}>Cadastrar</Text>
+                <Text style={styles.buttonText} onPress={() => navigation.navigate('CadastrarEsAcessibilidade')}>Cadastrar</Text>
             </TouchableOpacity>
+
         </View>
 
         </ImageBackground>
@@ -108,6 +98,7 @@ textTitle2: {
     color:"#FFFFFF",
     fontSize:50,
     textAlign:"center",
+    marginBottom:30
 },
 
 iconTitle: {
@@ -127,8 +118,9 @@ iconTitle: {
     backgroundColor:"#FFFFFF",
     paddingTop:20,
     width:"85%",
-    height:"70%",
+    height:"47%",
     borderRadius:30,
+    marginBottom:30
 },
 
 textForm: {
