@@ -41,9 +41,14 @@ export default function CadastrarEspaço({navigation}) {
         style={styles.imageBackground}
         >
  
+ <View style={styles.navbar}>
             <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
       <AntDesign name="arrowleft" size={24} color="white"/>
     </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.openDrawer()}>
+            <AntDesign name="bars" size={24} color="white" />
+            </TouchableOpacity>
+            </View>
             <View >
             <Text style={styles.textTitle1}>Cadastrar Espaço</Text>
             <Text style={styles.textTitle2}>Localização</Text>
@@ -99,7 +104,7 @@ const styles = StyleSheet.create({
     color:"#FFFFFF",
     fontSize:30,
     textAlign:"center",
-    marginTop:120
+    marginTop:150
     
 },
 
@@ -127,9 +132,9 @@ iconTitle: {
     backgroundColor:"#FFFFFF",
     paddingTop:20,
     width:"85%",
-    height:"47%",
+    height:"40%",
     borderRadius:30,
-    marginBottom:70
+    marginBottom:100
 },
 
 textForm: {
@@ -190,5 +195,10 @@ box: {
 
 goBack: {
     marginRight:300,
+},
+
+navbar: {
+    flexDirection: 'row',
+    alignItems: 'center',
 }
 });

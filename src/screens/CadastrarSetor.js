@@ -41,9 +41,14 @@ export default function CadastrarSetor({navigation}) {
                 source={require('../assets/Fundo.png')}
                 style={styles.imageBackground}
             >
-                <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
+                <View style={styles.navbar}>
+            <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
       <AntDesign name="arrowleft" size={24} color="white"/>
     </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.openDrawer()}>
+            <AntDesign name="bars" size={24} color="white" />
+            </TouchableOpacity>
+            </View>
                 <View >
                     <Text style={styles.textTitle1}>Cadastrar</Text>
                     <Text style={styles.textTitle2}>Setor</Text>
@@ -123,6 +128,7 @@ const styles = StyleSheet.create({
         color: "#FFFFFF",
         fontSize: 30,
         textAlign: "center",
+        marginTop:40
     },
 
     textTitle2: {
@@ -148,10 +154,10 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFFFFF",
         paddingTop: 20,
         width: "85%",
-        height: "68%",
+        height: "60%",
         borderRadius: 30,
         paddingTop: 20,
-        marginBottom: 80
+        marginBottom: 60
     },
 
     textForm: {
@@ -212,5 +218,10 @@ const styles = StyleSheet.create({
 
     goBack: {
         marginRight:300,
+    },
+
+    navbar: {
+        flexDirection: 'row',
+        alignItems: 'center',
     }
 });

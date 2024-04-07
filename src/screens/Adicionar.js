@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, ImageBackground, TouchableOpacity } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
 
 export default function Adicionar({navigation}) {
   return (
@@ -6,6 +7,12 @@ export default function Adicionar({navigation}) {
       <ImageBackground
       source={require('../assets/Fundo1.png')}
       style={styles.imageBackground}>
+        <View style={styles.navbar}>
+            <TouchableOpacity onPress={() => navigation.openDrawer()}>
+            <AntDesign name="bars" size={24} color="white" />
+            </TouchableOpacity>
+            </View>
+
         <Text style={styles.title}>Adicionar</Text>
         <View style={styles.formContext}>
         <TouchableOpacity
@@ -49,14 +56,16 @@ const styles = StyleSheet.create({
     color:"#FFFFFF",
     fontSize:30,
     textAlign:"center",
-    paddingBottom:30
+    paddingBottom:30,
+    marginTop: 80
   },
 
   formContext: {
     backgroundColor:"#FFFFFF",
     width:"85%",
-    height:"70%",
+    height:"60%",
     borderRadius:30,
+    marginBottom:60
 },
 
   imageBackground: {
@@ -82,4 +91,10 @@ buttonText: {
     color:"#FFFFFF",
     fontSize:20,
 },
+
+navbar: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginLeft:300
+}
 });

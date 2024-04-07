@@ -11,6 +11,8 @@ import { StyleSheet,
         Keyboard,
 } from 'react-native';
 
+import { AntDesign } from '@expo/vector-icons';
+
 
 export default function CadastrarEsAcessibilidade({navigation}) {
 
@@ -41,6 +43,12 @@ export default function CadastrarEsAcessibilidade({navigation}) {
         source={require('../assets/Fundo.png')}
         style={styles.imageBackground}
         >
+          <View style={styles.navbar}>
+            <TouchableOpacity onPress={() => navigation.openDrawer()}>
+            <AntDesign name="bars" size={24} color="white" />
+            </TouchableOpacity>
+            </View>
+
             <View >
             <Text style={styles.textTitle1}>Cadastrar Espaço</Text>
             <Text style={styles.textTitle2}>Acessibilidade</Text>
@@ -116,6 +124,7 @@ const styles = StyleSheet.create({
     color:"#FFFFFF",
     fontSize:30,
     textAlign:"center",
+    marginTop:50
 },
 
 textTitle2: {
@@ -142,9 +151,9 @@ iconTitle: {
     backgroundColor:"#FFFFFF",
     paddingTop:20,
     width:"85%",
-    height:"63%",
+    height:"53%",
     borderRadius:30,
-    marginBottom:70
+    marginBottom:80
 },
 
 textForm: {
@@ -223,5 +232,11 @@ section: {
 
   textCheckBox: {
     color: "#211DFF"
-  }
+  },
+
+  navbar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft:300
+}
 });
