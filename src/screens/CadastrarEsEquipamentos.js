@@ -76,7 +76,7 @@ export default function CadastrarEsEquipamentos({navigation}) {
 
             <TouchableOpacity
             style={styles.button}>
-                <Text style={styles.buttonCancelar} onPress={() => navigation.navigate('CadastrarEsAcessibilidade')}>Voltar</Text>
+                <Text style={styles.buttonCancelar} onPress={() => navigation.goBack()}>Voltar</Text>
             </TouchableOpacity>
 
         </View>

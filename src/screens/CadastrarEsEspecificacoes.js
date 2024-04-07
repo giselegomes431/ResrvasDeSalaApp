@@ -75,7 +75,7 @@ export default function CadastrarEsEspecificacoes({navigation}) {
 
             <TouchableOpacity
             style={styles.button}>
-                <Text style={styles.buttonCancelar} onPress={() => navigation.navigate('CadastrarEsEquipamentos')}>Voltar</Text>
+                <Text style={styles.buttonCancelar} onPress={() => navigation.goBack()}>Voltar</Text>
             </TouchableOpacity>
 
         </View>

@@ -9,8 +9,9 @@ import { StyleSheet,
         Pressable,
         Keyboard} from 'react-native';
 
+        import { AntDesign } from '@expo/vector-icons';
 
-export default function CadastrarProfessor() {
+export default function CadastrarProfessor({navigation}) {
 
   const [errorMessage, setErrorMessage] = useState(null)
   const [nome, setNome] = useState("")
@@ -37,6 +38,9 @@ export default function CadastrarProfessor() {
         source={require('../assets/Fundo.png')}
         style={styles.imageBackground}
         >
+            <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
+      <AntDesign name="arrowleft" size={24} color="white"/>
+    </TouchableOpacity>
             <View >
             <Text style={styles.textTitle1}>Cadastrar</Text>
             <Text style={styles.textTitle2}>Professor</Text>
@@ -102,18 +106,20 @@ const styles = StyleSheet.create({
     color:"#FFFFFF",
     fontSize:30,
     textAlign:"center",
+    marginTop: 40
 },
 
 textTitle2: {
     color:"#FFFFFF",
     fontSize:50,
     textAlign:"center",
+    marginBottom:15
 },
 
 iconTitle: {
     paddingTop:10,
     paddingLeft:50,
-    paddingBottom:30
+    paddingBottom:40
 },
 
   imageBackground: {
@@ -127,8 +133,9 @@ iconTitle: {
     backgroundColor:"#FFFFFF",
     paddingTop:20,
     width:"85%",
-    height:"70%",
+    height:"57%",
     borderRadius:30,
+    marginBottom:70
 },
 
 textForm: {
@@ -185,5 +192,9 @@ errorMessage: {
 
 box: {
     flexDirection:"row",
+},
+
+goBack: {
+    marginRight:300,
 }
 });

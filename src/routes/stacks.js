@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 
 export default function Stacks(){
     return (
-            <Stack.Navigator screenOptions={{title:""}}>
+            <Stack.Navigator screenOptions={{title:"", headerBackTitleVisible: false, headerShown: false,}}>
                 <Stack.Screen
                 name="Adicionar"
                 component={Adicionar}>

@@ -11,8 +11,10 @@ import {
     Keyboard
 } from 'react-native';
 
+import { AntDesign } from '@expo/vector-icons';
 
-export default function CadastrarSetor() {
+
+export default function CadastrarSetor({navigation}) {
 
     const [errorMessage, setErrorMessage] = useState(null)
     const [nome, setNome] = useState("")
@@ -39,6 +41,9 @@ export default function CadastrarSetor() {
                 source={require('../assets/Fundo.png')}
                 style={styles.imageBackground}
             >
+                <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
+      <AntDesign name="arrowleft" size={24} color="white"/>
+    </TouchableOpacity>
                 <View >
                     <Text style={styles.textTitle1}>Cadastrar</Text>
                     <Text style={styles.textTitle2}>Setor</Text>
@@ -143,7 +148,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFFFFF",
         paddingTop: 20,
         width: "85%",
-        height: "73%",
+        height: "68%",
         borderRadius: 30,
         paddingTop: 20,
         marginBottom: 80
@@ -203,5 +208,9 @@ const styles = StyleSheet.create({
 
     box: {
         flexDirection: "row",
+    },
+
+    goBack: {
+        marginRight:300,
     }
 });

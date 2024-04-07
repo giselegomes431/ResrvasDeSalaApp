@@ -9,6 +9,9 @@ import { StyleSheet,
         Pressable,
         Keyboard} from 'react-native';
 
+import { AntDesign } from '@expo/vector-icons';
+
+
 
 export default function CadastrarEspaço({navigation}) {
 
@@ -37,6 +40,10 @@ export default function CadastrarEspaço({navigation}) {
         source={require('../assets/Fundo.png')}
         style={styles.imageBackground}
         >
+ 
+            <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
+      <AntDesign name="arrowleft" size={24} color="white"/>
+    </TouchableOpacity>
             <View >
             <Text style={styles.textTitle1}>Cadastrar Espaço</Text>
             <Text style={styles.textTitle2}>Localização</Text>
@@ -92,6 +99,8 @@ const styles = StyleSheet.create({
     color:"#FFFFFF",
     fontSize:30,
     textAlign:"center",
+    marginTop:120
+    
 },
 
 textTitle2: {
@@ -120,7 +129,7 @@ iconTitle: {
     width:"85%",
     height:"47%",
     borderRadius:30,
-    marginBottom:30
+    marginBottom:70
 },
 
 textForm: {
@@ -177,5 +186,9 @@ errorMessage: {
 
 box: {
     flexDirection:"row",
+},
+
+goBack: {
+    marginRight:300,
 }
 });
