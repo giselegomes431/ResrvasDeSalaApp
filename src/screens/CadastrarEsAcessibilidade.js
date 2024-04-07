@@ -12,7 +12,7 @@ import { StyleSheet,
 } from 'react-native';
 
 
-export default function CadastrarEspaço({navigation}) {
+export default function CadastrarEsAcessibilidade({navigation}) {
 
   const [errorMessage, setErrorMessage] = useState(null)
   const [nome, setNome] = useState("")
@@ -89,8 +89,8 @@ export default function CadastrarEspaço({navigation}) {
             <TouchableOpacity
                 style={styles.buttonCadastrar}
             >
-                <Text style={styles.buttonText} onPress={() => {validation()}}
-                >Cadastrar</Text>
+                <Text style={styles.buttonText} onPress={() => navigation.navigate('CadastrarEsEquipamentos')}
+                >Continuar</Text>
             </TouchableOpacity>
 
             <TouchableOpacity

@@ -10,7 +10,7 @@ import { StyleSheet,
         Keyboard} from 'react-native';
 
 
-export default function CadastrarEspaço({navigation}) {
+export default function CadastrarEsEspecificacoes({navigation}) {
 
   const [errorMessage, setErrorMessage] = useState(null)
   const [nome, setNome] = useState("")
@@ -39,30 +39,29 @@ export default function CadastrarEspaço({navigation}) {
         >
             <View >
             <Text style={styles.textTitle1}>Cadastrar Espaço</Text>
-            <Text style={styles.textTitle2}>Localização</Text>
+            <Text style={styles.textTitle2}>Especificações</Text>
         </View>
 
         <View style={styles.formContext}>
             <View style={styles.box}>
-                <Text style={styles.textForm}>Módulo:</Text>
+                <Text style={styles.textForm}>Capacidade:</Text>
                 <Text style={styles.errorMessage}>{errorMessage}</Text>
             </View>
             <TextInput
-                placeholder="Ex.: DCT"
-                keyboardType="ascii-capable"
+                placeholder="Ex.: 30"
+                keyboardType="numeric"
                 style={styles.input}
                 onChangeText={setNome}
                 value={nome}
                 />
 
             <View style={styles.box}>
-                <Text style={styles.textForm}>Nome da sala:</Text>
+                <Text style={styles.textForm2}>Descrição:</Text>
                 <Text style={styles.errorMessage}>{errorMessage}</Text>
             </View>
             <TextInput
-                placeholder="Ex.: Sala 01"
                 keyboardType="ascii-capable"
-                style={styles.input}
+                style={styles.input2}
                 onChangeText={setEmail}
                 value={email}
                 />
@@ -72,6 +71,11 @@ export default function CadastrarEspaço({navigation}) {
                 style={styles.buttonCadastrar}
             >
                 <Text style={styles.buttonText} onPress={() => navigation.navigate('CadastrarEsAcessibilidade')}>Continuar</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+            style={styles.button}>
+                <Text style={styles.buttonCancelar} onPress={() => navigation.navigate('CadastrarEsEquipamentos')}>Voltar</Text>
             </TouchableOpacity>
 
         </View>
@@ -118,9 +122,9 @@ iconTitle: {
     backgroundColor:"#FFFFFF",
     paddingTop:20,
     width:"85%",
-    height:"47%",
+    height:"63%",
     borderRadius:30,
-    marginBottom:30
+    marginBottom:50
 },
 
 textForm: {
@@ -129,11 +133,28 @@ textForm: {
     paddingLeft:20,
 },
 
+textForm2: {
+    color:"#0805A3",
+    fontSize:22,
+    paddingLeft:20,
+    paddingTop:15
+},
+
 input: {
     width:"90%",
     borderRadius: 15,
     backgroundColor:"#ECEBFD",
     height:50,
+    margin:12,
+    paddingLeft:15,
+    marginLeft:16
+},
+
+input2: {
+    width:"90%",
+    borderRadius: 15,
+    backgroundColor:"#ECEBFD",
+    height:120,
     margin:12,
     paddingLeft:15,
     marginLeft:16

@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import Checkbox from 'expo-checkbox';
 import { StyleSheet, 
         Text, 
         View, 
@@ -7,15 +8,17 @@ import { StyleSheet,
         TouchableOpacity,
         Vibration,
         Pressable,
-        Keyboard} from 'react-native';
+        Keyboard,
+} from 'react-native';
 
 
-export default function CadastrarEspaço({navigation}) {
+export default function CadastrarEsEquipamentos({navigation}) {
 
   const [errorMessage, setErrorMessage] = useState(null)
   const [nome, setNome] = useState("")
   const [email, setEmail] = useState("")
   const [telefone, setTelefone] = useState("")
+  const [isChecked, setChecked] = useState(false)
 
   function verification(){
         if(!nome.trim() || !email.trim() || !telefone.trim()){
@@ -31,6 +34,7 @@ export default function CadastrarEspaço({navigation}) {
         verification()
     }
 
+
   return (
         <Pressable onPress={Keyboard.dismiss} style={styles.container}>
       <ImageBackground
@@ -39,39 +43,40 @@ export default function CadastrarEspaço({navigation}) {
         >
             <View >
             <Text style={styles.textTitle1}>Cadastrar Espaço</Text>
-            <Text style={styles.textTitle2}>Localização</Text>
+            <Text style={styles.textTitle2}>Equipamentos</Text>
         </View>
 
         <View style={styles.formContext}>
             <View style={styles.box}>
-                <Text style={styles.textForm}>Módulo:</Text>
+                <Text style={styles.textForm}>Selecione os equipamentos disponíveis:</Text>
                 <Text style={styles.errorMessage}>{errorMessage}</Text>
             </View>
-            <TextInput
-                placeholder="Ex.: DCT"
-                keyboardType="ascii-capable"
-                style={styles.input}
-                onChangeText={setNome}
-                value={nome}
-                />
+            <View style={styles.section}>
+        <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+        <Text style={styles.textCheckBox}>Sim</Text>
+      </View>
 
-            <View style={styles.box}>
-                <Text style={styles.textForm}>Nome da sala:</Text>
-                <Text style={styles.errorMessage}>{errorMessage}</Text>
-            </View>
-            <TextInput
-                placeholder="Ex.: Sala 01"
-                keyboardType="ascii-capable"
-                style={styles.input}
-                onChangeText={setEmail}
-                value={email}
-                />
+      <View style={styles.section}>
+        <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+        <Text style={styles.textCheckBox}>Não</Text>
+      </View>
+
+      <View style={styles.section}>
+        <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+        <Text style={styles.textCheckBox}>Não há necessidade</Text>
+      </View>
 
 
             <TouchableOpacity
                 style={styles.buttonCadastrar}
             >
-                <Text style={styles.buttonText} onPress={() => navigation.navigate('CadastrarEsAcessibilidade')}>Continuar</Text>
+                <Text style={styles.buttonText} onPress={() => navigation.navigate('CadastrarEsEspecificacoes')}
+                >Continuar</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+            style={styles.button}>
+                <Text style={styles.buttonCancelar} onPress={() => navigation.navigate('CadastrarEsAcessibilidade')}>Voltar</Text>
             </TouchableOpacity>
 
         </View>
@@ -118,15 +123,23 @@ iconTitle: {
     backgroundColor:"#FFFFFF",
     paddingTop:20,
     width:"85%",
-    height:"47%",
+    height:"48%",
     borderRadius:30,
-    marginBottom:30
+    marginBottom:70
 },
 
 textForm: {
     color:"#0805A3",
     fontSize:22,
     paddingLeft:20,
+    paddingBottom:10
+},
+
+textForm2: {
+    color:"#0805A3",
+    fontSize:22,
+    paddingLeft:20,
+    marginTop:15
 },
 
 input: {
@@ -177,5 +190,19 @@ errorMessage: {
 
 box: {
     flexDirection:"row",
-}
+},
+
+section: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft:20,
+  },
+
+  checkbox: {
+    margin: 8,
+  },
+
+  textCheckBox: {
+    color: "#211DFF"
+  }
 });
