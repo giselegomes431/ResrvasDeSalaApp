@@ -100,10 +100,6 @@ export default function CadastrarSetor() {
                         <Text style={styles.buttonText} onPress={() => { validation() }}>Cadastrar</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity
-                        style={styles.button}>
-                        <Text style={styles.buttonCancelar}>Cancelar</Text>
-                    </TouchableOpacity>
                 </View>
 
             </ImageBackground>
@@ -147,9 +143,10 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFFFFF",
         paddingTop: 20,
         width: "85%",
-        height: "70%",
+        height: "73%",
         borderRadius: 30,
-        paddingTop: 20
+        paddingTop: 20,
+        marginBottom: 80
     },
 
     textForm: {
@@ -177,7 +174,7 @@ const styles = StyleSheet.create({
         paddingTop: 14,
         paddingBottom: 14,
         marginLeft: 80,
-        margin: 25,
+        marginTop: 10
     },
 
     buttonText: {
