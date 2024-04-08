@@ -7,7 +7,7 @@ import CadastrarEsEspecificacoes from "../screens/CadastrarEsEspecificacoes";
 
 const Stack = createNativeStackNavigator();
 
-export default function Stacks(){
+export default function StacksEspaco(){
     return (
             <Stack.Navigator screenOptions={{title:"",
             headerLeft: null,

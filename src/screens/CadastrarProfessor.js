@@ -17,6 +17,13 @@ export default function CadastrarProfessor({navigation}) {
   const [nome, setNome] = useState("")
   const [email, setEmail] = useState("")
   const [telefone, setTelefone] = useState("")
+  const [professor, setProfessor] = useState(null)
+  const [professores, setProfessores] = useState([])
+
+  function guardarProfessores(){
+    setProfessores ((arr) => [...arr, {id: new Date().getTime(), professor:nome}])
+    setProfessor(nome)
+}
 
   function verification(){
         if(!nome.trim() || !email.trim() || !telefone.trim()){
@@ -29,7 +36,10 @@ export default function CadastrarProfessor({navigation}) {
     }
 
     function validation(){
+        guardarProfessores()
         verification()
+        navigation.navigate('ConsultarProfessores', { professores: professores })
+        console.log(setProfessores)
     }
 
   return (

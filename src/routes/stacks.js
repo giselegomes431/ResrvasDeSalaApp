@@ -18,12 +18,13 @@ export default function Stacks(){
 
             <Stack.Screen
                 name="CadastrarProfessor"
-                component={CadastrarProfessor}>
+                component={CadastrarProfessor}>    
             </Stack.Screen>
 
             <Stack.Screen
                 name="CadastrarSetor"
-                component={CadastrarSetor}>
+                component={CadastrarSetor} 
+                options={{tabBarStyle: {display: "none"}}}>
             </Stack.Screen>
 
             <Stack.Screen

@@ -18,11 +18,19 @@ export default function CadastrarSetor({navigation}) {
 
     const [errorMessage, setErrorMessage] = useState(null)
     const [nome, setNome] = useState("")
+    const [sigla, setSigla] = useState("")
     const [email, setEmail] = useState("")
     const [telefone, setTelefone] = useState("")
+    const [departamento, setDepartamento] = useState(null)
+  const [departamentos, setDepartamentos] = useState([])
+
+  function guardarDepartamentos(){
+    setDepartamentos ((arr) => [...arr, {id: new Date().getTime(), departamento:sigla}])
+    setDepartamento(nome)
+}
 
     function verification() {
-        if (!nome.trim() || !email.trim() || !telefone.trim()) {
+        if (!nome.trim() || !email.trim() || !telefone.trim() || !sigla.trim()) {
             Vibration.vibrate();
             setErrorMessage("campo obrigatório*")
         }
@@ -32,7 +40,10 @@ export default function CadastrarSetor({navigation}) {
     }
 
     function validation() {
+        guardarDepartamentos()
         verification()
+        navigation.navigate('ConsultarSetor', { departamentos: departamentos })
+        console.log(setDepartamentos)
     }
 
     return (
@@ -60,7 +71,7 @@ export default function CadastrarSetor({navigation}) {
                         <Text style={styles.errorMessage}>{errorMessage}</Text>
                     </View>
                     <TextInput
-                        placeholder="Ex.: João"
+                        placeholder="Ex.: Departamento"
                         keyboardType="ascii-capable"
                         style={styles.input}
                         onChangeText={setNome}
@@ -74,10 +85,10 @@ export default function CadastrarSetor({navigation}) {
                     </View>
                     <TextInput
                         placeholder="Ex.: DCT"
-                        keyboardType="email-address"
+                        keyboardType="ascii-capable"
                         style={styles.input}
-                        onChangeText={setEmail}
-                        value={email}
+                        onChangeText={setSigla}
+                        value={sigla}
                     />
 
                     <View style={styles.box}>

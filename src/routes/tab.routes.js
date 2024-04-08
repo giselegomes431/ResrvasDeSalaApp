@@ -6,10 +6,10 @@ import { FontAwesome6 } from '@expo/vector-icons';
 
 import Espaco from "../screens/Espaco";
 import Manutencao from "../screens/Manutencao";
-import Adicionar from "../screens/Adicionar";
 import Stacks from "./stacks";
 import Gestor from "../screens/Gestor";
 import Consultar from "../screens/Consultar";
+import StacksConsultar from "./stacksConsultar";
 
 import ButtonNew from "../components/ButtonNew";
 
@@ -54,6 +54,7 @@ export default function TabRoutes(){
                 options={{
                     tabBarIcon: ({focused, color, size}) => (<ButtonNew size={size} color={color} focused={focused}/>),
                     tabBarLabel:"",
+                    
                 }}
             /> 
 
@@ -68,7 +69,7 @@ export default function TabRoutes(){
 
             <Tab.Screen 
                 name="consultar"
-                component={Consultar}
+                component={StacksConsultar}
                 options={{
                     tabBarIcon: ({color, size}) => <FontAwesome5 name="search" size={size} color={color} />,
                     tabBarLabel:"Consultar"
