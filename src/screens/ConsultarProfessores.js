@@ -48,8 +48,9 @@ export default function ConsultarProfessores({navigation, route}) {
 
                         />
           </View>
-           
-  
+          <TouchableOpacity onPress={() => navigation.navigate('ConsultarProfessor2')}>
+            <Text style={styles.teste}>Teste</Text>
+          </TouchableOpacity>
           </View>
           
         </ImageBackground>
@@ -125,4 +126,9 @@ result: {
     width:"100%",
     paddingRight:20,
 },
+
+teste: {
+  color: "#211DFF",
+  marginLeft: 150
+}
 });

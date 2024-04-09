@@ -1,4 +1,5 @@
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -10,12 +11,14 @@ import Stacks from "./stacks";
 import Gestor from "../screens/Gestor";
 import Consultar from "../screens/Consultar";
 import StacksConsultar from "./stacksConsultar";
+import Adicionar from "../screens/Adicionar";
 
 import ButtonNew from "../components/ButtonNew";
 
 const Tab = createBottomTabNavigator();
 
 export default function TabRoutes(){
+
     return(
         <Tab.Navigator screenOptions={{ headerShown: false, 
                                         tabBarStyle: {
@@ -54,8 +57,8 @@ export default function TabRoutes(){
                 options={{
                     tabBarIcon: ({focused, color, size}) => (<ButtonNew size={size} color={color} focused={focused}/>),
                     tabBarLabel:"",
-                    
-                }}
+                  }}
+                
             /> 
 
             <Tab.Screen 

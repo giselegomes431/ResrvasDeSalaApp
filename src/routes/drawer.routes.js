@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import TabRoutes from "./tab.routes";
 import Perfil from "../screens/Perfil";
 import Configuracoes from "../screens/Configuracoes";
+import Stacks from './stacks';
 
 const Drawer = createDrawerNavigator();
 
@@ -15,7 +16,7 @@ export default function DrawerRoutes(){
     return (
         <Drawer.Navigator screenOptions={{
             title: "",
-            headerShown: false // Para ocultar a barra de título
+            headerShown: false 
         }}>
             <Drawer.Screen
                 name="Home"

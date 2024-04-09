@@ -59,17 +59,17 @@ export default function CadastrarEsEquipamentos({navigation}) {
             </View>
             <View style={styles.section}>
         <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
-        <Text style={styles.textCheckBox}>Sim</Text>
+        <Text style={styles.textCheckBox}>Projetor</Text>
       </View>
 
       <View style={styles.section}>
         <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
-        <Text style={styles.textCheckBox}>Não</Text>
+        <Text style={styles.textCheckBox}>Computador</Text>
       </View>
 
       <View style={styles.section}>
         <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
-        <Text style={styles.textCheckBox}>Não há necessidade</Text>
+        <Text style={styles.textCheckBox}>Ar condicionado</Text>
       </View>
 
 

@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import Consultar from "../screens/Consultar";
 import ConsultarProfessores from "../screens/ConsultarProfessores";
 import ConsultarSetor from "../screens/ConsultarSetor";
+import ConsultarProfessor2 from "../screens/ConsultarProfessor2";
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,11 @@ export default function StacksConsultar(){
             <Stack.Screen
                 name="ConsultarSetor"
                 component={ConsultarSetor}>
+            </Stack.Screen>
+
+            <Stack.Screen
+                name="ConsultarProfessor2"
+                component={ConsultarProfessor2}>
             </Stack.Screen>
             
             </Stack.Navigator>
