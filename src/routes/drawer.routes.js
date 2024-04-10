@@ -20,7 +20,7 @@ export default function DrawerRoutes(){
         }}>
             <Drawer.Screen
                 name="Home"
-                component={TabRoutes}
+                component={Stacks}
                 options={{
                     drawerIcon: ({color, size}) => <Feather name="home" size={size} color={color} />,
                     drawerLabel:"Início",

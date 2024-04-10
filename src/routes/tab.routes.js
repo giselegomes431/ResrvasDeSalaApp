@@ -10,7 +10,7 @@ import Manutencao from "../screens/Manutencao";
 import Stacks from "./stacks";
 import Gestor from "../screens/Gestor";
 import Consultar from "../screens/Consultar";
-import StacksConsultar from "./stacksConsultar";
+
 import Adicionar from "../screens/Adicionar";
 
 import ButtonNew from "../components/ButtonNew";
@@ -53,7 +53,7 @@ export default function TabRoutes(){
 
             <Tab.Screen 
                 name="adicionar"
-                component={Stacks}
+                component={Adicionar}
                 options={{
                     tabBarIcon: ({focused, color, size}) => (<ButtonNew size={size} color={color} focused={focused}/>),
                     tabBarLabel:"",
@@ -72,7 +72,7 @@ export default function TabRoutes(){
 
             <Tab.Screen 
                 name="consultar"
-                component={StacksConsultar}
+                component={Consultar}
                 options={{
                     tabBarIcon: ({color, size}) => <FontAwesome5 name="search" size={size} color={color} />,
                     tabBarLabel:"Consultar"
