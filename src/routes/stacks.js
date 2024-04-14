@@ -10,8 +10,7 @@ import HomeTab from "./HomeTab";
 import ConsultarProfessor2 from "../screens/ConsultarProfessor2";
 import ConsultarProfessores from "../screens/ConsultarProfessores";
 import ConsultarSetor from "../screens/ConsultarSetor";
-import MEditarMensagem from "../components/MEditarMensagem";
-import MEditar from "../components/MEditar";
+import EditarProfessor from "../screens/EditarProfessor";
 
 const Stack = createNativeStackNavigator();
 
@@ -42,13 +41,18 @@ export default function Stacks(){
             </Stack.Screen>
 
             <Stack.Screen
-                name="ConsultarSetor"
-                component={ConsultarSetor}>
+                name="ConsultarProfessor2"
+                component={ConsultarProfessor2}>
             </Stack.Screen>
 
             <Stack.Screen
-                name="ConsultarProfessor2"
-                component={ConsultarProfessor2}>
+                name="EditarProfessor"
+                component={EditarProfessor}>
+            </Stack.Screen>
+
+            <Stack.Screen
+                name="ConsultarSetor"
+                component={ConsultarSetor}>
             </Stack.Screen>
 
             </Stack.Navigator>

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect} from "react"
+import {useNavigation} from '@react-navigation/native';
 import {
     StyleSheet,
     Text,
@@ -15,13 +16,60 @@ import {
 import { AntDesign } from '@expo/vector-icons';
 
 
-export default function ConsultarProfessores({navigation, route}) {
-    const { professores } = route.params || { professores: [] };
-    const [listaProfessores, setListaProfessores] = useState(professores);
+export default function ConsultarProfessores() {
+  const navigation = useNavigation();
 
-    useEffect(() => {
-        setListaProfessores(professores);
-    }, [professores]);
+  const navigateToDetails = item => {
+    navigation.navigate('ConsultarProfessor2', { item });
+   
+  };
+
+    const [professores, setProfessores] = useState([
+      {
+        id: 1,
+        nome: 'Agnaldo',
+        email: 'agnaldo@uesb.edu.br',
+        telefone: '123456789',
+        setor: 'DCT',
+      },
+      {
+        id: 2,
+        nome: 'Saulo',
+        email: 'saulo@uesb.edu.br',
+        telefone: '123456789',
+        setor: 'DCT',
+      },
+      {
+        id: 3,
+        nome: 'Robson',
+        email: 'robson@uesb.edu.br',
+        telefone: '123456789',
+        setor: 'DCT',
+      },
+      {
+        id: 4,
+        nome: 'Lara',
+        email: 'lara@uesb.edu.br',
+        telefone: '123456789',
+        setor: 'DCHL',
+      },
+    ]);
+  
+    const [data, setData] = useState([
+      {id: 1, name: 'Item 1'},
+      {id: 2, name: 'Item 2'},
+      {id: 3, name: 'Item 3'},
+      {id: 4, name: 'Item 4'},
+      {id: 5, name: 'Item 5'},
+    ]);
+  
+    const renderItem = ({item}) => (
+      <TouchableOpacity onPress={() => navigateToDetails(item)}>
+        <View style={styles.item}>
+          <Text style={styles.text}>{item.nome}</Text>
+        </View>
+      </TouchableOpacity>
+    );
 
     return (
         <View style={styles.container}>
@@ -35,7 +83,7 @@ export default function ConsultarProfessores({navigation, route}) {
             <TouchableOpacity onPress={() => navigation.openDrawer()}>
             <AntDesign name="bars" size={24} color="white" />
             </TouchableOpacity>
-            </View>
+            </View> 
   
           <Text style={styles.title}>Professores</Text>
           <View style={styles.formContext}>
@@ -43,14 +91,12 @@ export default function ConsultarProfessores({navigation, route}) {
           <FlatList
                             style={styles.list}
                             data={professores}
-                            renderItem={({item}) => <Text style={styles.result}>{item.professor}</Text>}
-                            keyExtractor={(item) => item.id}
+              renderItem={renderItem}
+              keyExtractor={item => item.id}
+              ItemSeparatorComponent={() => <View style={styles.separator} />}
 
                         />
           </View>
-          <TouchableOpacity onPress={() => navigation.navigate('ConsultarProfessor2')}>
-            <Text style={styles.teste}>Teste</Text>
-          </TouchableOpacity>
           </View>
           
         </ImageBackground>
@@ -116,19 +162,20 @@ const styles = StyleSheet.create({
 
   list: {
     marginTop:20,
-    marginLeft:20
+    marginLeft:20,
+    marginRight:20
 },
 
-result: {
-    fontSize:20,
-    color:"#211DFF",
-    height:50,
-    width:"100%",
-    paddingRight:20,
-},
-
-teste: {
-  color: "#211DFF",
-  marginLeft: 150
-}
+item: {
+    backgroundColor: '#ECEBFD',
+    padding: 10,
+    marginVertical: 8,
+    borderRadius: 20,
+    alignItems:"center",
+      justifyContent:"center",
+  },
+  text: {
+    fontSize: 16,
+    color: '#0805A3',
+  },
 });

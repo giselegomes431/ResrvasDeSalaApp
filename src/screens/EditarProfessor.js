@@ -10,14 +10,11 @@ import { StyleSheet,
         Keyboard} from 'react-native';
 
         import { AntDesign } from '@expo/vector-icons';
-        import { FontAwesome6 } from '@expo/vector-icons';
-        import MEditar from "../components/MEditar";
 
-export default function ConsultarProfessor2({navigation,route}) {
+export default function EditarProfessor({navigation,route}) {
 
   const [modalVisible, setModalVisible] = useState(false);
   const professor = route.params.item;
-
 
   return (
         <Pressable onPress={Keyboard.dismiss} style={styles.container}>
@@ -42,38 +39,44 @@ export default function ConsultarProfessor2({navigation,route}) {
                 <Text style={styles.textForm}>Nome:</Text>
             </View>
 
-            <Text style={styles.input}>{professor.nome}</Text>
+            <TextInput
+                placeholder={professor.nome}
+                keyboardType="ascii-capable"
+                style={styles.input}
+                />
 
             <View style={styles.box}>
                 <Text style={styles.textForm}>Email:</Text>
             </View>
 
-            <Text style={styles.input}>{professor.email}</Text>
+            <TextInput
+                placeholder={professor.email}
+                keyboardType="ascii-capable"
+                style={styles.input}
+                />
 
             <View style={styles.box}>
                 <Text style={styles.textForm}>Telefone:</Text>
             </View>
 
-            <Text style={styles.input}>{professor.telefone}</Text>
+            <TextInput
+                placeholder={professor.telefone}
+                keyboardType="ascii-capable"
+                style={styles.input}
+                />
 
             <View style={styles.box}>
                 <Text style={styles.textForm}>Departamento:</Text>
             </View>
 
-            <Text style={styles.input}>{professor.setor}</Text>
+            <TextInput
+                placeholder={professor.setor}
+                keyboardType="ascii-capable"
+                style={styles.input}
+                />
             
             <View style={styles.navbar2}>
 
-                <TouchableOpacity style={styles.b} onPress={() => navigation.navigate('EditarProfessor', {item})}>
-                <FontAwesome6 name="edit" size={20} color="white" />
-                </TouchableOpacity>
-                
-                <MEditar visible={modalVisible} onClose={() => setModalVisible(false)}/>
-
-
-                <TouchableOpacity style={styles.b2}>
-                <AntDesign name="delete" size={20} color="white" />
-                </TouchableOpacity>
             </View>
         </View>
 
@@ -149,7 +152,6 @@ input: {
     height:50,
     margin:12,
     paddingLeft:15,
-    paddingTop: 15,
     marginLeft:16,
 },
 
