@@ -13,8 +13,7 @@ import {
 
 import { AntDesign } from '@expo/vector-icons';
 
-
-export default function CadastrarSetor({navigation}) {
+export default function CadastrarSetor({ navigation }) {
 
     const [errorMessage, setErrorMessage] = useState(null)
     const [nome, setNome] = useState("")
@@ -22,12 +21,12 @@ export default function CadastrarSetor({navigation}) {
     const [email, setEmail] = useState("")
     const [telefone, setTelefone] = useState("")
     const [departamento, setDepartamento] = useState(null)
-  const [departamentos, setDepartamentos] = useState([])
+    const [departamentos, setDepartamentos] = useState([])
 
-  function guardarDepartamentos(){
-    setDepartamentos ((arr) => [...arr, {id: new Date().getTime(), departamento:sigla}])
-    setDepartamento(nome)
-}
+    function guardarDepartamentos() {
+        setDepartamentos((arr) => [...arr, { id: new Date().getTime(), departamento: sigla }])
+        setDepartamento(nome)
+    }
 
     function verification() {
         if (!nome.trim() || !email.trim() || !telefone.trim() || !sigla.trim()) {
@@ -53,13 +52,15 @@ export default function CadastrarSetor({navigation}) {
                 style={styles.imageBackground}
             >
                 <View style={styles.navbar}>
-            <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
-      <AntDesign name="arrowleft" size={24} color="white"/>
-    </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.openDrawer()}>
-            <AntDesign name="bars" size={24} color="white" />
-            </TouchableOpacity>
-            </View>
+                    <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
+                        <AntDesign name="arrowleft" size={24} color="white" />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress={() => navigation.openDrawer()}>
+                        <AntDesign name="bars" size={24} color="white" />
+                    </TouchableOpacity>
+                </View>
+
                 <View >
                     <Text style={styles.textTitle1}>Cadastrar</Text>
                     <Text style={styles.textTitle2}>Setor</Text>
@@ -70,6 +71,7 @@ export default function CadastrarSetor({navigation}) {
                         <Text style={styles.textForm}>Nome:</Text>
                         <Text style={styles.errorMessage}>{errorMessage}</Text>
                     </View>
+
                     <TextInput
                         placeholder="Ex.: Departamento"
                         keyboardType="ascii-capable"
@@ -78,11 +80,11 @@ export default function CadastrarSetor({navigation}) {
                         value={nome}
                     />
 
-
                     <View style={styles.box}>
                         <Text style={styles.textForm}>Sigla:</Text>
                         <Text style={styles.errorMessage}>{errorMessage}</Text>
                     </View>
+
                     <TextInput
                         placeholder="Ex.: DCT"
                         keyboardType="ascii-capable"
@@ -95,6 +97,7 @@ export default function CadastrarSetor({navigation}) {
                         <Text style={styles.textForm}>Email:</Text>
                         <Text style={styles.errorMessage}>{errorMessage}</Text>
                     </View>
+
                     <TextInput
                         placeholder="Ex.: joao@uesb.edu.br"
                         keyboardType="email-address"
@@ -107,6 +110,7 @@ export default function CadastrarSetor({navigation}) {
                         <Text style={styles.textForm}>Telefone:</Text>
                         <Text style={styles.errorMessage}>{errorMessage}</Text>
                     </View>
+
                     <TextInput
                         placeholder="Ex.: 12345678901"
                         keyboardType="numeric"
@@ -120,11 +124,10 @@ export default function CadastrarSetor({navigation}) {
                     >
                         <Text style={styles.buttonText} onPress={() => { validation() }}>Cadastrar</Text>
                     </TouchableOpacity>
-
                 </View>
 
             </ImageBackground>
-            </Pressable>
+        </Pressable>
     );
 }
 
@@ -139,19 +142,13 @@ const styles = StyleSheet.create({
         color: "#FFFFFF",
         fontSize: 30,
         textAlign: "center",
-        marginTop:40
+        marginTop: 40
     },
 
     textTitle2: {
         color: "#FFFFFF",
         fontSize: 50,
         textAlign: "center",
-    },
-
-    iconTitle: {
-        paddingTop: 10,
-        paddingLeft: 50,
-        paddingBottom: 30
     },
 
     imageBackground: {
@@ -204,17 +201,6 @@ const styles = StyleSheet.create({
         fontSize: 22,
     },
 
-    button: {
-        paddingBottom: 20
-    },
-
-    buttonCancelar: {
-        color: "#0805A3",
-        fontSize: 15,
-        paddingLeft: 138,
-        textDecorationLine: "underline"
-    },
-
     errorMessage: {
         fontSize: 10,
         color: "red",
@@ -228,7 +214,7 @@ const styles = StyleSheet.create({
     },
 
     goBack: {
-        marginRight:300,
+        marginRight: 300,
     },
 
     navbar: {

@@ -1,46 +1,43 @@
-import { View, TouchableOpacity } from 'react-native';
-import {createDrawerNavigator} from "@react-navigation/drawer";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
 
-import TabRoutes from "./tab.routes";
 import Perfil from "../screens/Perfil";
 import Configuracoes from "../screens/Configuracoes";
 import Stacks from './stacks';
 
 const Drawer = createDrawerNavigator();
 
-
-export default function DrawerRoutes(){
+export default function DrawerRoutes() {
     return (
         <Drawer.Navigator screenOptions={{
             title: "",
-            headerShown: false 
+            headerShown: false
         }}>
             <Drawer.Screen
                 name="Home"
                 component={Stacks}
                 options={{
-                    drawerIcon: ({color, size}) => <Feather name="home" size={size} color={color} />,
-                    drawerLabel:"Início",
+                    drawerIcon: ({ color, size }) => <Feather name="home" size={size} color={color} />,
+                    drawerLabel: "Início",
                 }}
             />
 
-        <Drawer.Screen
+            <Drawer.Screen
                 name="Perfil"
                 component={Perfil}
                 options={{
-                    drawerIcon: ({color, size}) => <Feather name="user" size={size} color={color} />,
-                    drawerLabel:"Meu Perfil"
+                    drawerIcon: ({ color, size }) => <Feather name="user" size={size} color={color} />,
+                    drawerLabel: "Meu Perfil"
                 }}
             />
+
             <Drawer.Screen
                 name="Configuracoes"
                 component={Configuracoes}
                 options={{
-                    drawerIcon: ({color, size}) => <AntDesign name="setting" size={size} color={color} />,
-                    drawerLabel:"Configurações"
+                    drawerIcon: ({ color, size }) => <AntDesign name="setting" size={size} color={color} />,
+                    drawerLabel: "Configurações"
                 }}
             />
         </Drawer.Navigator>

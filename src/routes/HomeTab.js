@@ -1,9 +1,8 @@
 /* eslint-disable react/react-in-jsx-scope */
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {AntDesign} from '@expo/vector-icons';
-import {Entypo} from '@expo/vector-icons';
-import {FontAwesome5} from '@expo/vector-icons';
-import {FontAwesome6} from '@expo/vector-icons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Entypo } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome6 } from '@expo/vector-icons';
 
 import Espaco from '../screens/Espaco';
 import Manutencao from '../screens/Manutencao';
@@ -30,11 +29,12 @@ export default function HomeTab() {
           borderRadius: 16,
         },
       }}>
+
       <Tab.Screen
         name="espaco"
         component={Espaco}
         options={{
-          tabBarIcon: ({color, size}) => (
+          tabBarIcon: ({ color, size }) => (
             <Entypo name="home" size={size} color={color} />
           ),
           tabBarLabel: 'Espaço',
@@ -45,28 +45,27 @@ export default function HomeTab() {
         name="manutencao"
         component={Manutencao}
         options={{
-          tabBarIcon: ({color, size}) => (
+          tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="wrench" size={size} color={color} />
           ),
           tabBarLabel: 'Manutenção',
         }}
       />
 
-<Tab.Screen 
-                name="adicionar"
-                component={Adicionar}
-                options={{
-                    tabBarIcon: ({focused, color, size}) => (<ButtonNew size={size} color={color} focused={focused}/>),
-                    tabBarLabel:"",
-                  }}
-                
-            /> 
+      <Tab.Screen
+        name="adicionar"
+        component={Adicionar}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (<ButtonNew size={size} color={color} focused={focused} />),
+          tabBarLabel: "",
+        }}
+      />
 
       <Tab.Screen
         name="gestor"
         component={Gestor}
         options={{
-          tabBarIcon: ({color, size}) => (
+          tabBarIcon: ({ color, size }) => (
             <FontAwesome6 name="user-group" size={size} color={color} />
           ),
           tabBarLabel: 'Gestor',
@@ -77,7 +76,7 @@ export default function HomeTab() {
         name="consultar"
         component={Consultar}
         options={{
-          tabBarIcon: ({color, size}) => (
+          tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="search" size={size} color={color} />
           ),
           tabBarLabel: 'Consultar',
