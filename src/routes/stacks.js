@@ -10,6 +10,8 @@ import HomeTab from "./HomeTab";
 import ConsultarProfessor2 from "../screens/ConsultarProfessor2";
 import ConsultarProfessores from "../screens/ConsultarProfessores";
 import ConsultarSetor from "../screens/ConsultarSetor";
+import MEditarMensagem from "../components/MEditarMensagem";
+import MEditar from "../components/MEditar";
 
 const Stack = createNativeStackNavigator();
 

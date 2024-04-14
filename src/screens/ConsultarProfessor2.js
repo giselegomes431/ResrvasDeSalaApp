@@ -11,6 +11,7 @@ import { StyleSheet,
 
         import { AntDesign } from '@expo/vector-icons';
         import { FontAwesome6 } from '@expo/vector-icons';
+        import MEditar from "../components/MEditar";
 
 export default function ConsultarProfessor2({navigation}) {
 
@@ -20,6 +21,7 @@ export default function ConsultarProfessor2({navigation}) {
   const [telefone, setTelefone] = useState("")
   const [professor, setProfessor] = useState(null)
   const [professores, setProfessores] = useState([])
+  const [modalVisible, setModalVisible] = useState(false);
 
   function guardarProfessores(){
     setProfessores ((arr) => [...arr, {id: new Date().getTime(), professor:nome}])
@@ -107,9 +109,12 @@ export default function ConsultarProfessor2({navigation}) {
                 />
 
             <View style={styles.navbar2}>
-                <TouchableOpacity style={styles.b}>
+                <TouchableOpacity style={styles.b} onPress={() => setModalVisible(true)}>
                 <FontAwesome6 name="edit" size={20} color="white" />
                 </TouchableOpacity>
+                <MEditar visible={modalVisible} onClose={() => setModalVisible(false)}/>
+
+
                 <TouchableOpacity style={styles.b2}>
                 <AntDesign name="delete" size={20} color="white" />
                 </TouchableOpacity>
