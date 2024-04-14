@@ -83,6 +83,7 @@ export default function EditarProfessor({ navigation, route }) {
                     >
                         <Text style={styles.buttonText} onPress={() => setModalVisible(true)}>Editar</Text>
                     </TouchableOpacity>
+                    
                     <MEditar visible={modalVisible} onClose={() => setModalVisible(false)}/>
 
                 </View>

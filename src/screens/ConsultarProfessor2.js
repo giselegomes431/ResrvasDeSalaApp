@@ -12,6 +12,7 @@ import {
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome6 } from '@expo/vector-icons';
 import MEditar from "../components/MEditar";
+import MExcluir from "../components/MExcluir";
 
 export default function ConsultarProfessor2({ navigation, route }) {
 
@@ -68,11 +69,12 @@ export default function ConsultarProfessor2({ navigation, route }) {
                             <FontAwesome6 name="edit" size={20} color="white" />
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.b2}>
+                        <TouchableOpacity style={styles.b2} onPress={() => setModalVisible(true)}>
                             <AntDesign name="delete" size={20} color="white" />
                         </TouchableOpacity>
 
-                        <MEditar visible={modalVisible} onClose={() => setModalVisible(false)} />
+                        <MExcluir visible={modalVisible} onClose={() => setModalVisible(false)}/>
+
                     </View>
                 </View>
 
