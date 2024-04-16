@@ -24,14 +24,14 @@ export default function Consultar({ navigation }) {
               style={styles.buttonText}
               onPress={() => navigation.navigate('ConsultarProfessor')}
             >
-              Professores</Text>
+              Professor</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.buttonCadastrar}
             onPress={() => navigation.navigate('ConsultarSetor')}
           >
-            <Text style={styles.buttonText}>Setores</Text>
+            <Text style={styles.buttonText}>Setor</Text>
           </TouchableOpacity>
 
         </View>

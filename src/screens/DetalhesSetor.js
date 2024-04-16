@@ -11,7 +11,6 @@ import {
 
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome6 } from '@expo/vector-icons';
-import MEditar from "../components/MEditar";
 import MExcluir from "../components/MExcluir";
 
 export default function DetalhesSetor({ navigation, route }) {

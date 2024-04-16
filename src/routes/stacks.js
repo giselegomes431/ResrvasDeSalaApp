@@ -10,6 +10,7 @@ import ConsultarSetor from "../screens/ConsultarSetor";
 import EditarProfessor from "../screens/EditarProfessor";
 import DetalhesSetor from "../screens/DetalhesSetor";
 import EditarSetor from "../screens/EditarSetor";
+import StacksCEspaco from "./stacksCEspaco";
 
 const Stack = createNativeStackNavigator();
 
@@ -68,6 +69,11 @@ export default function Stacks() {
                 name="EditarSetor"
                 component={EditarSetor}
             >
+            </Stack.Screen>
+
+            <Stack.Screen
+                name="StacksCEspaco"
+                component={StacksCEspaco}>
             </Stack.Screen>
 
         </Stack.Navigator>
