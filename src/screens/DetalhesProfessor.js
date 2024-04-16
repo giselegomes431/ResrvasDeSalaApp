@@ -11,10 +11,9 @@ import {
 
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome6 } from '@expo/vector-icons';
-import MEditar from "../components/MEditar";
 import MExcluir from "../components/MExcluir";
 
-export default function ConsultarProfessor2({ navigation, route }) {
+export default function DetalhesProfessor({ navigation, route }) {
 
     const [modalVisible, setModalVisible] = useState(false);
     const professor = route.params.item;

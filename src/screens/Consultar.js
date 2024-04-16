@@ -22,7 +22,7 @@ export default function Consultar({ navigation }) {
           >
             <Text
               style={styles.buttonText}
-              onPress={() => navigation.navigate('ConsultarProfessores')}
+              onPress={() => navigation.navigate('ConsultarProfessor')}
             >
               Professores</Text>
           </TouchableOpacity>

@@ -4,8 +4,8 @@ import CadastrarProfessor from "../screens/CadastrarProfessor";
 import CadastrarSetor from "../screens/CadastrarSetor";
 import stacksEspaco from "./stacksEspaco"
 import HomeTab from "./HomeTab";
-import ConsultarProfessor2 from "../screens/ConsultarProfessor2";
-import ConsultarProfessores from "../screens/ConsultarProfessores";
+import DetalhesProfessor from "../screens/DetalhesProfessor";
+import ConsultarProfessor from "../screens/ConsultarProfessor";
 import ConsultarSetor from "../screens/ConsultarSetor";
 import EditarProfessor from "../screens/EditarProfessor";
 import DetalhesSetor from "../screens/DetalhesSetor";
@@ -39,13 +39,13 @@ export default function Stacks() {
             </Stack.Screen>
 
             <Stack.Screen
-                name="ConsultarProfessores"
-                component={ConsultarProfessores}>
+                name="ConsultarProfessor"
+                component={ConsultarProfessor}>
             </Stack.Screen>
 
             <Stack.Screen
-                name="ConsultarProfessor2"
-                component={ConsultarProfessor2}>
+                name="DetalhesProfessor"
+                component={DetalhesProfessor}>
             </Stack.Screen>
 
             <Stack.Screen

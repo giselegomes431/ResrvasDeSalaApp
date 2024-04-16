@@ -11,11 +11,11 @@ import {
 
 import { AntDesign } from '@expo/vector-icons';
 
-export default function ConsultarProfessores() {
+export default function ConsultarProfessor() {
   const navigation = useNavigation();
 
   const navigateToDetails = item => {
-    navigation.navigate('ConsultarProfessor2', { item });
+    navigation.navigate('DetalhesProfessor', { item });
 
   };
 
