@@ -4,19 +4,20 @@ import {
     Text,
     View,
     ImageBackground,
-    TextInput,
     TouchableOpacity,
     Pressable,
     Keyboard
 } from 'react-native';
 
 import { AntDesign } from '@expo/vector-icons';
+import { FontAwesome6 } from '@expo/vector-icons';
 import MEditar from "../components/MEditar";
+import MExcluir from "../components/MExcluir";
 
-export default function EditarProfessor({ navigation, route }) {
+export default function DetalhesSetor({ navigation, route }) {
 
     const [modalVisible, setModalVisible] = useState(false);
-    const professor = route.params.item;
+    const setor = route.params.item;
 
     return (
         <Pressable onPress={Keyboard.dismiss} style={styles.container}>
@@ -28,12 +29,13 @@ export default function EditarProfessor({ navigation, route }) {
                     <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
                         <AntDesign name="arrowleft" size={24} color="white" />
                     </TouchableOpacity>
+
                     <TouchableOpacity onPress={() => navigation.openDrawer()}>
                         <AntDesign name="bars" size={24} color="white" />
                     </TouchableOpacity>
                 </View>
 
-                <Text style={styles.title}>Professor</Text>
+                <Text style={styles.title}>Setor</Text>
 
                 <View style={styles.formContext}>
 
@@ -41,50 +43,39 @@ export default function EditarProfessor({ navigation, route }) {
                         <Text style={styles.textForm}>Nome:</Text>
                     </View>
 
-                    <TextInput
-                        placeholder={professor.nome}
-                        keyboardType="ascii-capable"
-                        style={styles.input}
-                    />
+                    <Text style={styles.input}>{setor.nome}</Text>
+
+                    <View style={styles.box}>
+                        <Text style={styles.textForm}>Sigla:</Text>
+                    </View>
+
+                    <Text style={styles.input}>{setor.sigla}</Text>
 
                     <View style={styles.box}>
                         <Text style={styles.textForm}>Email:</Text>
                     </View>
 
-                    <TextInput
-                        placeholder={professor.email}
-                        keyboardType="email-address"
-                        style={styles.input}
-                    />
+                    <Text style={styles.input}>{setor.email}</Text>
 
                     <View style={styles.box}>
                         <Text style={styles.textForm}>Telefone:</Text>
                     </View>
 
-                    <TextInput
-                        placeholder={professor.telefone}
-                        keyboardType="numeric"
-                        style={styles.input}
-                    />
+                    <Text style={styles.input}>{setor.telefone}</Text>
 
-                    <View style={styles.box}>
-                        <Text style={styles.textForm}>Departamento:</Text>
+                    <View style={styles.navbar2}>
+
+                        <TouchableOpacity style={styles.b} onPress={() => navigation.navigate('EditarSetor', { item: setor })}>
+                            <FontAwesome6 name="edit" size={20} color="white" />
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.b2} onPress={() => setModalVisible(true)}>
+                            <AntDesign name="delete" size={20} color="white" />
+                        </TouchableOpacity>
+
+                        <MExcluir visible={modalVisible} onClose={() => setModalVisible(false)}/>
+
                     </View>
-
-                    <TextInput
-                        placeholder={professor.setor}
-                        keyboardType="ascii-capable"
-                        style={styles.input}
-                    />
-
-                    <TouchableOpacity
-                        style={styles.buttonCadastrar}
-                    >
-                        <Text style={styles.buttonText} onPress={() => setModalVisible(true)}>Editar</Text>
-                    </TouchableOpacity>
-                    
-                    <MEditar visible={modalVisible} onClose={() => setModalVisible(false)}/>
-
                 </View>
 
 
@@ -99,26 +90,6 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "column",
         height: "auto"
-    },
-
-    textTitle1: {
-        color: "#FFFFFF",
-        fontSize: 30,
-        textAlign: "center",
-        marginTop: 70
-    },
-
-    textTitle2: {
-        color: "#FFFFFF",
-        fontSize: 50,
-        textAlign: "center",
-        marginBottom: 15
-    },
-
-    iconTitle: {
-        paddingTop: 10,
-        paddingLeft: 50,
-        paddingBottom: 40
     },
 
     title: {
@@ -159,35 +130,8 @@ const styles = StyleSheet.create({
         height: 50,
         margin: 12,
         paddingLeft: 15,
+        paddingTop: 15,
         marginLeft: 16,
-    },
-
-    buttonCadastrar: {
-        borderRadius: 15,
-        alignItems: "center",
-        justifyContent: "center",
-        width: "50%",
-        backgroundColor: "#211DFF",
-        paddingTop: 14,
-        paddingBottom: 14,
-        marginLeft: 80,
-        margin: 10,
-    },
-
-    buttonText: {
-        color: "#FFFFFF",
-        fontSize: 22,
-    },
-
-    button: {
-        paddingBottom: 20
-    },
-
-    buttonCancelar: {
-        color: "#0805A3",
-        fontSize: 15,
-        paddingLeft: 138,
-        textDecorationLine: "underline"
     },
 
     errorMessage: {
@@ -238,6 +182,4 @@ const styles = StyleSheet.create({
         backgroundColor: "#211DFF",
         marginLeft: 200
     },
-
-
 });

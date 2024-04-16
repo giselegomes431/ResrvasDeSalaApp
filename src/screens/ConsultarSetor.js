@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { useNavigation } from '@react-navigation/native';
 import {
   StyleSheet,
   Text,
@@ -10,14 +11,68 @@ import {
 
 import { AntDesign } from '@expo/vector-icons';
 
+export default function ConsultarSetor() {
+  const navigation = useNavigation();
 
-export default function ConsultarSetor({ navigation, route }) {
-  const { departamentos } = route.params || { departamentos: [] };
-  const [listaDepartamentos, setListaDepartamentos] = useState(departamentos);
+  const navigateToDetails = item => {
+    navigation.navigate('DetalhesSetor', { item });
 
-  useEffect(() => {
-    setListaDepartamentos(departamentos);
-  }, [departamentos]);
+  };
+
+  const [setores, setSetores] = useState([
+    {
+      id: 1,
+      nome: 'Departamento de Ciências e Tecnologia',
+      sigla: 'DCT',
+      email: 'dct@uesb.edu.br',
+      telefone: '(73) 3528-9611',
+    },
+    {
+      id: 2,
+      nome: 'Departamento de Ciências Humanas e Letras',
+      sigla: 'DCHL',
+      email: 'dchl.jq@uesb.edu.br',
+      telefone: '(73) 3528-9664',
+    },
+    {
+      id: 3,
+      nome: 'Departamento de Ciências Biológicas',
+      sigla: 'DCB',
+      email: 'dcbjq@uesb.edu.br',
+      telefone: '(73) 3528-9616',
+    },
+    {
+      id: 4,
+      nome: 'Departamento de Saúde I',
+      sigla: 'DS I',
+      email: 'ds1jq@uesb.edu.br',
+      telefone: '(73) 3528-9610',
+    },
+    {
+      id: 5,
+      nome: 'Departamento de Saúde II',
+      sigla: 'DS II',
+      email: 'ds2jq@uesb.edu.br',
+      telefone: '(73) 3528-9623',
+    },
+  ]);
+
+  const [data, setData] = useState([
+    { id: 1, name: 'Item 1' },
+    { id: 2, name: 'Item 2' },
+    { id: 3, name: 'Item 3' },
+    { id: 4, name: 'Item 4' },
+    { id: 5, name: 'Item 5' },
+    { id: 6, name: 'Item 6' },
+  ]);
+
+  const renderItem = ({ item }) => (
+    <TouchableOpacity onPress={() => navigateToDetails(item)}>
+      <View style={styles.item}>
+        <Text style={styles.text}>{item.sigla}</Text>
+      </View>
+    </TouchableOpacity>
+  );
 
   return (
     <View style={styles.container}>
@@ -38,11 +93,12 @@ export default function ConsultarSetor({ navigation, route }) {
 
         <View style={styles.formContext}>
           <View style={styles.container}>
-            <FlatList
+          <FlatList
               style={styles.list}
-              data={departamentos}
-              renderItem={({ item }) => <Text style={styles.result}>{item.departamento}</Text>}
-              keyExtractor={(item) => item.id}
+              data={setores}
+              renderItem={renderItem}
+              keyExtractor={item => item.id}
+              ItemSeparatorComponent={() => <View style={styles.separator} />}
             />
           </View>
         </View>
@@ -93,14 +149,21 @@ const styles = StyleSheet.create({
 
   list: {
     marginTop: 20,
-    marginLeft: 20
+    marginLeft: 20,
+    marginRight: 20
   },
 
-  result: {
-    fontSize: 20,
-    color: "#211DFF",
-    height: 50,
-    width: "100%",
-    paddingRight: 20,
+  item: {
+    backgroundColor: '#ECEBFD',
+    padding: 10,
+    marginVertical: 8,
+    borderRadius: 20,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  
+  text: {
+    fontSize: 16,
+    color: '#0805A3',
   },
 });

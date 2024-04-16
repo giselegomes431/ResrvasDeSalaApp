@@ -13,10 +13,10 @@ import {
 import { AntDesign } from '@expo/vector-icons';
 import MEditar from "../components/MEditar";
 
-export default function EditarProfessor({ navigation, route }) {
+export default function EditarSetor({ navigation, route }) {
 
     const [modalVisible, setModalVisible] = useState(false);
-    const professor = route.params.item;
+    const setor = route.params.item;
 
     return (
         <Pressable onPress={Keyboard.dismiss} style={styles.container}>
@@ -33,7 +33,7 @@ export default function EditarProfessor({ navigation, route }) {
                     </TouchableOpacity>
                 </View>
 
-                <Text style={styles.title}>Professor</Text>
+                <Text style={styles.title}>Setor</Text>
 
                 <View style={styles.formContext}>
 
@@ -42,7 +42,17 @@ export default function EditarProfessor({ navigation, route }) {
                     </View>
 
                     <TextInput
-                        placeholder={professor.nome}
+                        placeholder={setor.nome}
+                        keyboardType="ascii-capable"
+                        style={styles.input}
+                    />
+
+                    <View style={styles.box}>
+                        <Text style={styles.textForm}>Sigla:</Text>
+                    </View>
+
+                    <TextInput
+                        placeholder={setor.sigla}
                         keyboardType="ascii-capable"
                         style={styles.input}
                     />
@@ -52,7 +62,7 @@ export default function EditarProfessor({ navigation, route }) {
                     </View>
 
                     <TextInput
-                        placeholder={professor.email}
+                        placeholder={setor.email}
                         keyboardType="email-address"
                         style={styles.input}
                     />
@@ -62,18 +72,8 @@ export default function EditarProfessor({ navigation, route }) {
                     </View>
 
                     <TextInput
-                        placeholder={professor.telefone}
+                        placeholder={setor.telefone}
                         keyboardType="numeric"
-                        style={styles.input}
-                    />
-
-                    <View style={styles.box}>
-                        <Text style={styles.textForm}>Departamento:</Text>
-                    </View>
-
-                    <TextInput
-                        placeholder={professor.setor}
-                        keyboardType="ascii-capable"
                         style={styles.input}
                     />
 

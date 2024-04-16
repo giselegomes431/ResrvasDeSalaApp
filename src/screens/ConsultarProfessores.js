@@ -11,7 +11,6 @@ import {
 
 import { AntDesign } from '@expo/vector-icons';
 
-
 export default function ConsultarProfessores() {
   const navigation = useNavigation();
 

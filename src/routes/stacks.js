@@ -8,6 +8,8 @@ import ConsultarProfessor2 from "../screens/ConsultarProfessor2";
 import ConsultarProfessores from "../screens/ConsultarProfessores";
 import ConsultarSetor from "../screens/ConsultarSetor";
 import EditarProfessor from "../screens/EditarProfessor";
+import DetalhesSetor from "../screens/DetalhesSetor";
+import EditarSetor from "../screens/EditarSetor";
 
 const Stack = createNativeStackNavigator();
 
@@ -55,6 +57,17 @@ export default function Stacks() {
             <Stack.Screen
                 name="ConsultarSetor"
                 component={ConsultarSetor}>
+            </Stack.Screen>
+
+            <Stack.Screen
+                name="DetalhesSetor"
+                component={DetalhesSetor}>
+            </Stack.Screen>
+
+            <Stack.Screen
+                name="EditarSetor"
+                component={EditarSetor}
+            >
             </Stack.Screen>
 
         </Stack.Navigator>
