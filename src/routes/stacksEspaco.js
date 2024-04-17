@@ -4,6 +4,7 @@ import CadastrarEspaco from "../screens/CadastrarEspaco";
 import CadastrarEsAcessibilidade from "../screens/CadastrarEsAcessibilidade";
 import CadastrarEsEquipamentos from "../screens/CadastrarEsEquipamentos";
 import CadastrarEsEspecificacoes from "../screens/CadastrarEsEspecificacoes";
+import EditarEspaco from "../screens/EditarEspaco";
 
 const Stack = createNativeStackNavigator();
 
@@ -33,7 +34,6 @@ export default function StacksEspaco() {
                 name="CadastrarEsEspecificacoes"
                 component={CadastrarEsEspecificacoes}>
             </Stack.Screen>
-
 
         </Stack.Navigator>
     )

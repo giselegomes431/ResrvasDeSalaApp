@@ -52,7 +52,7 @@ export default function ConsultarEspaco() {
       modulo: 'Josélia Navarro',
       equipamentos: ['Projetor', 'Computador', 'Arcondicionado'],
       acessibilidades: ['Acesso via rampa', 'Acesso via elevador'],
-      reservas: ['Sexta'],
+      reservas: ['Sexta', 'Sábado'],
       gestors: 'Gestor de Serviço 03',
       gestoresr: ['Gestor 05', 'Gestor 06']
     },

@@ -6,15 +6,15 @@ import {
     ImageBackground,
     TouchableOpacity,
     Pressable,
-    Keyboard
+    Keyboard,
+    TextInput
 } from 'react-native';
 
 import { AntDesign } from '@expo/vector-icons';
 import MEditar from "../components/MEditar";
 
-export default function DetalhesEquipamentos({ navigation, route }) {
-
-    
+export default function EditarAcessibilidades({ navigation, route }) {
+    const [modalVisible, setModalVisible] = useState(false);
     const espaco = route.params.item;
 
     return (
@@ -39,13 +39,22 @@ export default function DetalhesEquipamentos({ navigation, route }) {
                     <Text style={styles.nome}>{espaco.nome}</Text>
                     <Text style={styles.modulo}>{espaco.modulo}</Text>
 
-                    <Text style={styles.text}>Equipamentos:</Text>
+                    <Text style={styles.text}>Acessibilidades:</Text>
                     <View style={styles.navbar2}>
-                        {espaco.equipamentos.map((equipamento, index) => (
-                            <Text key={index} style={styles.list}>• {equipamento}</Text>
-                        ))}
+                        <TextInput
+                            placeholder={espaco.acessibilidades.map(acessibilidade => `• ${acessibilidade}`).join('\n')}
+                            keyboardType="ascii-capable"
+                            style={styles.list}
+                        />
                     </View>
 
+                    <TouchableOpacity
+                        style={styles.buttonCadastrar}
+                    >
+                        <Text style={styles.buttonText} onPress={() => setModalVisible(true)}>Editar</Text>
+                    </TouchableOpacity>
+
+                    <MEditar visible={modalVisible} onClose={() => setModalVisible(false)} />
 
                 </View>
 
@@ -68,7 +77,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         textAlign: "center",
         paddingBottom: 20,
-        marginTop: 140
+        marginTop: 80
     },
 
     imageBackground: {
@@ -82,9 +91,9 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFFFFF",
         paddingTop: 20,
         width: "85%",
-        height: "50%",
+        height: "60%",
         borderRadius: 30,
-        marginBottom: 90,
+        marginBottom: 40,
     },
 
     goBack: {
@@ -129,5 +138,23 @@ const styles = StyleSheet.create({
     list: {
         marginBottom: 10,
         color: "#0805A3"
-    }
+    },
+
+    buttonCadastrar: {
+        borderRadius: 15,
+        alignItems: "center",
+        justifyContent: "center",
+        width: "50%",
+        backgroundColor: "#211DFF",
+        paddingTop: 14,
+        paddingBottom: 14,
+        marginLeft: 80,
+        margin: 10,
+        marginTop: 30
+    },
+
+    buttonText: {
+        color: "#FFFFFF",
+        fontSize: 22,
+    },
 });

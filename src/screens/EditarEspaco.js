@@ -6,14 +6,14 @@ import {
     ImageBackground,
     TouchableOpacity,
     Pressable,
-    Keyboard
+    Keyboard,
+    TextInput
 } from 'react-native';
 
 import { AntDesign } from '@expo/vector-icons';
-import { FontAwesome6 } from '@expo/vector-icons';
-import MExcluir from "../components/MExcluir";
+import MEditar from "../components/MEditar";
 
-export default function DetalhesEspaco({ navigation, route }) {
+export default function EditarEspaco({ navigation, route }) {
 
     const [modalVisible, setModalVisible] = useState(false);
     const espaco = route.params.item;
@@ -42,47 +42,49 @@ export default function DetalhesEspaco({ navigation, route }) {
 
                     <View style={styles.navbar}>
                         <Text style={styles.capacidade}>Capacidade:</Text>
-                        <Text style={styles.capacidade2}>{espaco.capacidade}</Text>
+                        <TextInput
+                            placeholder={espaco.capacidade}
+                            keyboardType="ascii-capable"
+                            style={styles.capacidade2}
+                        />
                     </View>
 
                     <Text style={styles.descricao}>Descrição:</Text>
-
-                    <Text style={styles.input}>{espaco.descricao}</Text>
+                    <TextInput
+                        placeholder={espaco.descricao}
+                        keyboardType="ascii-capable"
+                        style={styles.input}
+                    />
 
                     <View style={styles.alinhar}>
-                        <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('DetalhesEquipamento', { item: espaco })}>
+                        <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('EditarEquipamentos', { item: espaco })}>
                             <Text style={styles.text}>Equipamentos</Text>
                             <AntDesign name="caretright" size={20} color="#211DFF" />
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('DetalhesAcessibilidades', { item: espaco })}>
+                        <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('EditarAcessibilidades', { item: espaco })}>
                             <Text style={styles.text}>Acessibilidades</Text>
                             <AntDesign name="caretright" size={20} color="#211DFF" />
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('DetalhesReservas', { item: espaco })}>
+                        <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('EditarReservas', { item: espaco })}>
                             <Text style={styles.text}>Reservas</Text>
                             <AntDesign name="caretright" size={20} color="#211DFF" />
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.buttons2} onPress={() => navigation.navigate('DetalhesGestores', { item: espaco })}>
+                        <TouchableOpacity style={styles.buttons2} onPress={() => navigation.navigate('EditarGestores', { item: espaco })}>
                             <Text style={styles.text}>Gestores</Text>
                             <AntDesign name="caretright" size={20} color="#211DFF" />
                         </TouchableOpacity>
-                    </View>
 
-                    <View style={styles.navbar3}>
 
-                        <TouchableOpacity style={styles.b} onPress={() => navigation.navigate('EditarEspaco', { item: espaco })}>
-                            <FontAwesome6 name="edit" size={20} color="white" />
+                        <TouchableOpacity
+                            style={styles.buttonCadastrar}
+                        >
+                            <Text style={styles.buttonText} onPress={() => setModalVisible(true)}>Editar</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.b2} onPress={() => setModalVisible(true)}>
-                            <AntDesign name="delete" size={20} color="white" />
-                        </TouchableOpacity>
-
-                        <MExcluir visible={modalVisible} onClose={() => setModalVisible(false)} />
-
+                        <MEditar visible={modalVisible} onClose={() => setModalVisible(false)} />
                     </View>
                 </View>
 
@@ -130,10 +132,10 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         backgroundColor: "#ECEBFD",
         margin: 12,
-        paddingLeft: 15,
-        paddingTop: 15,
+        paddingLeft: 10,
         marginLeft: 16,
         color: "#0805A3",
+        paddingBottom: 70
     },
 
     goBack: {
@@ -143,34 +145,6 @@ const styles = StyleSheet.create({
     navbar: {
         flexDirection: 'row',
         alignItems: 'center',
-    },
-
-    b: {
-        width: 40,
-        height: 40,
-        borderRadius: 30,
-        alignItems: "center",
-        justifyContent: "center",
-        marginBottom: 10,
-        backgroundColor: "#211DFF",
-    },
-
-    navbar2: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: "center",
-        marginTop: 20,
-    },
-
-    b2: {
-        width: 40,
-        height: 40,
-        borderRadius: 30,
-        alignItems: "center",
-        justifyContent: "center",
-        marginBottom: 10,
-        backgroundColor: "#211DFF",
-        marginLeft: 200
     },
 
     nome: {
@@ -214,7 +188,7 @@ const styles = StyleSheet.create({
     },
 
     buttons2: {
-        marginBottom: 10,
+        marginBottom: 5,
         width: "70%",
         height: "10%",
         borderRadius: 15,
@@ -231,16 +205,25 @@ const styles = StyleSheet.create({
     },
 
     alinhar: {
-        flex: 3,
+        flex: 2,
         alignItems: "center",
         justifyContent: "center",
     },
 
-    navbar3: {
-        flexDirection: 'row',
-        alignItems: 'center',
+    buttonCadastrar: {
+        borderRadius: 15,
+        alignItems: "center",
         justifyContent: "center",
-        marginTop: 10,
-        marginBottom: 10,
+        width: "50%",
+        backgroundColor: "#211DFF",
+        paddingTop: 14,
+        paddingBottom: 14,
+        margin: 10,
+        marginTop: 20
+    },
+
+    buttonText: {
+        color: "#FFFFFF",
+        fontSize: 22,
     },
 });

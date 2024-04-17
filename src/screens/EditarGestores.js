@@ -6,15 +6,15 @@ import {
     ImageBackground,
     TouchableOpacity,
     Pressable,
-    Keyboard
+    Keyboard,
+    TextInput
 } from 'react-native';
 
 import { AntDesign } from '@expo/vector-icons';
 import MEditar from "../components/MEditar";
 
-export default function DetalhesEquipamentos({ navigation, route }) {
-
-    
+export default function EditarGestores({ navigation, route }) {
+    const [modalVisible, setModalVisible] = useState(false);
     const espaco = route.params.item;
 
     return (
@@ -39,14 +39,33 @@ export default function DetalhesEquipamentos({ navigation, route }) {
                     <Text style={styles.nome}>{espaco.nome}</Text>
                     <Text style={styles.modulo}>{espaco.modulo}</Text>
 
-                    <Text style={styles.text}>Equipamentos:</Text>
+                    <Text style={styles.text}>Gestores de reservas:</Text>
                     <View style={styles.navbar2}>
-                        {espaco.equipamentos.map((equipamento, index) => (
-                            <Text key={index} style={styles.list}>• {equipamento}</Text>
-                        ))}
+                    <TextInput
+                            placeholder={espaco.gestoresr.map(gestoresrs => `• ${gestoresrs}`).join('\n')}
+                            keyboardType="ascii-capable"
+                            style={styles.list}
+                        />
                     </View>
 
 
+                    <Text style={styles.text2}>Gestor de serviço:</Text>
+
+                    <View style={styles.navbar3}>
+                    <TextInput
+                            placeholder={espaco.gestors}
+                            keyboardType="ascii-capable"
+                            style={styles.input}
+                        />
+                    </View>
+
+                    <TouchableOpacity
+                        style={styles.buttonCadastrar}
+                    >
+                        <Text style={styles.buttonText} onPress={() => setModalVisible(true)}>Editar</Text>
+                    </TouchableOpacity>
+
+                    <MEditar visible={modalVisible} onClose={() => setModalVisible(false)} />
                 </View>
 
 
@@ -68,7 +87,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         textAlign: "center",
         paddingBottom: 20,
-        marginTop: 140
+        marginTop: 10
     },
 
     imageBackground: {
@@ -82,9 +101,9 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFFFFF",
         paddingTop: 20,
         width: "85%",
-        height: "50%",
+        height: "75%",
         borderRadius: 30,
-        marginBottom: 90,
+        marginBottom: 5,
     },
 
     goBack: {
@@ -119,7 +138,7 @@ const styles = StyleSheet.create({
     navbar2: {
         backgroundColor: "#ECEBFD",
         width: "90%",
-        height: "50%",
+        height: "30%",
         marginLeft: 16,
         borderRadius: 20,
         paddingLeft: 16,
@@ -129,5 +148,46 @@ const styles = StyleSheet.create({
     list: {
         marginBottom: 10,
         color: "#0805A3"
-    }
+    },
+
+    input: {
+        color: "#0805A3"
+    },
+
+    navbar3: {
+        backgroundColor: "#ECEBFD",
+        width: "90%",
+        height: "20%",
+        marginLeft: 16,
+        paddingLeft: 16,
+        paddingTop: 16,
+        borderRadius: 20,
+    },
+
+    text2: {
+        color: "#0805A3",
+        marginRight: 15,
+        marginLeft: 16,
+        marginBottom: 20,
+        fontSize: 22,
+        marginTop: 35
+    },
+
+    buttonCadastrar: {
+        borderRadius: 15,
+        alignItems: "center",
+        justifyContent: "center",
+        width: "50%",
+        backgroundColor: "#211DFF",
+        paddingTop: 14,
+        paddingBottom: 14,
+        marginLeft: 80,
+        margin: 10,
+        marginTop:20
+    },
+
+    buttonText: {
+        color: "#FFFFFF",
+        fontSize: 22,
+    },
 });
