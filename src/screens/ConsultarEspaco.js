@@ -28,9 +28,9 @@ export default function ConsultarEspaco() {
       modulo: 'Josélia Navarro',
       equipamentos: ['Projetor', 'Computador', 'Arcondicionado'],
       acessibilidades: ['Acesso via rampa', 'Acesso via elevador'],
-      reservas: ['Projetor', 'Computador', 'Arcondicionado'],
-      gestorS: 'Gestor de Serviço 01',
-      gestoresR: ['Gestor 01', 'Gestor 02']
+      reservas: ['Segunda', 'Terça'],
+      gestors: 'Gestor de Serviço 01',
+      gestoresr: ['Gestor 01', 'Gestor 02']
     },
     {
       id: 2,
@@ -40,9 +40,9 @@ export default function ConsultarEspaco() {
       modulo: 'Administrativo',
       equipamentos: ['Projetor', 'Computador', 'Arcondicionado'],
       acessibilidades: ['Acesso via rampa', 'Acesso via elevador'],
-      reservas: ['Projetor', 'Computador', 'Arcondicionado'],
-      gestorS: 'Gestor de Serviço 02',
-      gestoresR: ['Gestor 03', 'Gestor 04']
+      reservas: ['Quarta', 'Quinta'],
+      gestors: 'Gestor de Serviço 02',
+      gestoresr: ['Gestor 03', 'Gestor 04']
     },
     {
       id: 3,
@@ -52,9 +52,9 @@ export default function ConsultarEspaco() {
       modulo: 'Josélia Navarro',
       equipamentos: ['Projetor', 'Computador', 'Arcondicionado'],
       acessibilidades: ['Acesso via rampa', 'Acesso via elevador'],
-      reservas: ['Projetor', 'Computador', 'Arcondicionado'],
-      gestorS: 'Gestor de Serviço 03',
-      gestoresR: ['Gestor 05', 'Gestor 06']
+      reservas: ['Sexta'],
+      gestors: 'Gestor de Serviço 03',
+      gestoresr: ['Gestor 05', 'Gestor 06']
     },
   ]);
 

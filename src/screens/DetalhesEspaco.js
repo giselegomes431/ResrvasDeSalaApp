@@ -50,22 +50,22 @@ export default function DetalhesEspaco({ navigation, route }) {
                     <Text style={styles.input}>{espaco.descricao}</Text>
 
                     <View style={styles.alinhar}>
-                        <TouchableOpacity style={styles.buttons}>
+                        <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('DetalhesEquipamento', { item: espaco })}>
                             <Text style={styles.text}>Equipamentos</Text>
                             <AntDesign name="caretright" size={20} color="#211DFF" />
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.buttons}>
+                        <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('DetalhesAcessibilidades', { item: espaco })}>
                             <Text style={styles.text}>Acessibilidades</Text>
                             <AntDesign name="caretright" size={20} color="#211DFF" />
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.buttons}>
+                        <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('DetalhesReservas', { item: espaco })}>
                             <Text style={styles.text}>Reservas</Text>
                             <AntDesign name="caretright" size={20} color="#211DFF" />
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.buttons2}>
+                        <TouchableOpacity style={styles.buttons2} onPress={() => navigation.navigate('DetalhesGestores', { item: espaco })}>
                             <Text style={styles.text}>Gestores</Text>
                             <AntDesign name="caretright" size={20} color="#211DFF" />
                         </TouchableOpacity>
@@ -124,12 +124,6 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
 
-    textForm: {
-        color: "#0805A3",
-        fontSize: 22,
-        paddingLeft: 20,
-    },
-
     input: {
         width: "90%",
         height: "20%",
@@ -140,18 +134,6 @@ const styles = StyleSheet.create({
         paddingTop: 15,
         marginLeft: 16,
         color: "#0805A3",
-    },
-
-    errorMessage: {
-        fontSize: 10,
-        color: "red",
-        fontWeight: "bold",
-        paddingLeft: 10,
-        paddingTop: 10
-    },
-
-    box: {
-        flexDirection: "row",
     },
 
     goBack: {
