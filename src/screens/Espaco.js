@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, ImageBackground, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
+import DensityMediumIcon from '@mui/icons-material/DensityMedium';
 
 export default function Espaco({ navigation }) {
   return (

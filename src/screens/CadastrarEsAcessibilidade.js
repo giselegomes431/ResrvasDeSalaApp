@@ -10,7 +10,7 @@ import {
   Pressable,
   Keyboard,
 } from 'react-native';
-
+import CheckBox from '@react-native-community/checkbox';
 import { AntDesign } from '@expo/vector-icons';
 
 
