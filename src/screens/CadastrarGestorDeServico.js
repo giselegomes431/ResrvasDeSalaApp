@@ -13,7 +13,7 @@ import {
 
 import { AntDesign } from '@expo/vector-icons';
 
-export default function CadastrarGestorDeReserva2({ navigation }) {
+export default function CadastrarGestorDeServico({ navigation }) {
 
     const [errorMessage, setErrorMessage] = useState(null)
     const [nome, setNome] = useState("")
@@ -66,17 +66,37 @@ export default function CadastrarGestorDeReserva2({ navigation }) {
                 </View>
 
                 <View style={styles.formContext}>
-                    <TouchableOpacity style={styles.b} onPress={() => navigation.navigate('CadastrarGestorDeReserva3')}>
-                        <AntDesign name="plus" size={20} color="white" />
+                    <View style={styles.box}>
+                        <Text style={styles.textForm}>Módulo:</Text>
+                        <Text style={styles.errorMessage}>{errorMessage}</Text>
+                    </View>
+
+                    <TextInput
+                        placeholder=""
+                        keyboardType="ascii-capable"
+                        style={styles.input}
+                        onChangeText={setNome}
+                        value={nome}
+                    />
+
+                    <View style={styles.box}>
+                        <Text style={styles.textForm}>Espaço:</Text>
+                        <Text style={styles.errorMessage}>{errorMessage}</Text>
+                    </View>
+
+                    <TextInput
+                        placeholder=""
+                        keyboardType="ascii-capable"
+                        style={styles.input}
+                        onChangeText={setEmail}
+                        value={email}
+                    />
+
+                    <TouchableOpacity
+                        style={styles.buttonCadastrar}
+                    >
+                        <Text style={styles.buttonText} onPress={() => navigation.navigate('CadastrarGestorDeReserva2')}>Continuar</Text>
                     </TouchableOpacity>
-
-                    <View style={styles.horizontalLine} />
-
-                    <TouchableOpacity style={styles.b} onPress={() => navigation.navigate('CadastrarGestorDeReserva3')}>
-                        <AntDesign name="plus" size={20} color="white" />
-                    </TouchableOpacity>
-
-                    <View style={styles.horizontalLine} />
                 </View>
 
             </ImageBackground>
@@ -114,12 +134,11 @@ const styles = StyleSheet.create({
 
     formContext: {
         backgroundColor: "#FFFFFF",
-        paddingTop: 30,
+        paddingTop: 20,
         width: "85%",
-        height: "25%",
+        height: "40%",
         borderRadius: 30,
-        marginBottom: 110,
-        marginTop: 40
+        marginBottom: 50
     },
 
     textForm: {
@@ -174,25 +193,5 @@ const styles = StyleSheet.create({
     navbar: {
         flexDirection: 'row',
         alignItems: 'center',
-    },
-
-    b: {
-        width: 30,
-        height: 30,
-        borderRadius: 30,
-        alignItems: "center",
-        justifyContent: "center",
-        marginBottom: 10,
-        backgroundColor: "#211DFF",
-        marginLeft: 16
-    },
-
-    horizontalLine: {
-        height: 1,
-        width: '90%', // Ou você pode usar um valor específico, como 200
-        backgroundColor: '#211DFF',
-        marginLeft: 17,
-        marginTop: 20,
-        marginBottom: 30
-    },
+    }
 });

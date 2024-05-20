@@ -13,6 +13,7 @@ import EditarSetor from "../screens/EditarSetor";
 import StacksCEspaco from "./stacksCEspaco";
 import CadastrarGestorDeReserva from "../screens/CadastrarGestorDeReserva";
 import CadastrarGestorDeReserva2 from "../screens/CadastrarGestorDeReserva2";
+import CadastrarGestorDeReserva3 from "../screens/CadastrarGestorDeReserva3";
 
 const Stack = createNativeStackNavigator();
 
@@ -86,6 +87,11 @@ export default function Stacks() {
             <Stack.Screen
                 name="CadastrarGestorDeReserva2"
                 component={CadastrarGestorDeReserva2}>
+            </Stack.Screen>
+
+            <Stack.Screen
+                name="CadastrarGestorDeReserva3"
+                component={CadastrarGestorDeReserva3}>
             </Stack.Screen>
 
         </Stack.Navigator>
