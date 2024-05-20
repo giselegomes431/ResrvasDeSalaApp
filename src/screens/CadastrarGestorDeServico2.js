@@ -66,7 +66,7 @@ export default function CadastrarGestorDeServico2({ navigation }) {
                 </View>
 
                 <View style={styles.formContext}>
-                    <TouchableOpacity style={styles.b} onPress={() => navigation.navigate('CadastrarGestorDeReserva3')}>
+                    <TouchableOpacity style={styles.b} onPress={() => navigation.navigate('CadastrarGestorDeServico3')}>
                         <AntDesign name="plus" size={20} color="white" />
                     </TouchableOpacity>
 
