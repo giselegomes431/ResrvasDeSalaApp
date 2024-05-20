@@ -95,7 +95,7 @@ export default function CadastrarGestorDeServico({ navigation }) {
                     <TouchableOpacity
                         style={styles.buttonCadastrar}
                     >
-                        <Text style={styles.buttonText} onPress={() => navigation.navigate('CadastrarGestorDeReserva2')}>Continuar</Text>
+                        <Text style={styles.buttonText} onPress={() => navigation.navigate('CadastrarGestorDeServico2')}>Continuar</Text>
                     </TouchableOpacity>
                 </View>
 
