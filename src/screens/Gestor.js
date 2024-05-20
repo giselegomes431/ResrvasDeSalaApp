@@ -26,7 +26,7 @@ export default function Consultar({ navigation }) {
 
           <TouchableOpacity
             style={styles.buttonCadastrar}
-            onPress={() => navigation.navigate('ConsultarSetor')}
+            onPress={() => navigation.navigate('CadastrarGestorDeServico')}
           >
             <Text style={styles.buttonText}>Vincular gestor de Serviço</Text>
           </TouchableOpacity>

@@ -62,7 +62,7 @@ export default function CadastrarGestorDeServico({ navigation }) {
 
                 <View >
                     <Text style={styles.textTitle1}>Vincular</Text>
-                    <Text style={styles.textTitle2}>Gestor de Reserva</Text>
+                    <Text style={styles.textTitle2}>Gestor de Serviço</Text>
                 </View>
 
                 <View style={styles.formContext}>
