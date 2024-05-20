@@ -11,6 +11,7 @@ import EditarProfessor from "../screens/EditarProfessor";
 import DetalhesSetor from "../screens/DetalhesSetor";
 import EditarSetor from "../screens/EditarSetor";
 import StacksCEspaco from "./stacksCEspaco";
+import CadastrarGestorDeReserva from "../screens/CadastrarGestorDeReserva";
 
 const Stack = createNativeStackNavigator();
 
@@ -74,6 +75,11 @@ export default function Stacks() {
             <Stack.Screen
                 name="StacksCEspaco"
                 component={StacksCEspaco}>
+            </Stack.Screen>
+
+            <Stack.Screen
+                name="CadastrarGestorDeReserva"
+                component={CadastrarGestorDeReserva}>
             </Stack.Screen>
 
         </Stack.Navigator>
