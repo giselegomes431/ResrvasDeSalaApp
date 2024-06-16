@@ -10,11 +10,12 @@ import {
 } from 'react-native';
 
 import { AntDesign } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 export default function DetalhesServicos({ navigation, route }) {
 
     const modulo = route.params.item;
-    
+
     return (
         <Pressable onPress={Keyboard.dismiss} style={styles.container}>
             <ImageBackground
@@ -36,11 +37,23 @@ export default function DetalhesServicos({ navigation, route }) {
                 <View style={styles.formContext}>
                     <View style={styles.list}>
                         <View style={styles.item}>
-                            <TouchableOpacity onPress={() => navigation.navigate('DetalhesServicos2', { item: modulo })}><Text style={styles.text}>{modulo.sala1}</Text></TouchableOpacity>
+                            <TouchableOpacity onPress={() => navigation.navigate('DetalhesServicos2', { item: modulo })}>
+                                <View style={styles.navbar}>
+                                    <Text style={styles.text}>{modulo.sala1}</Text>
+                                    <FontAwesome name="circle" size={10} color="orange" />
+
+                                </View>
+                            </TouchableOpacity>
                         </View>
 
                         <View style={styles.item}>
-                            <TouchableOpacity onPress={() => navigation.navigate('DetalhesServicos3', { item: modulo })}><Text style={styles.text}>{modulo.sala2}</Text></TouchableOpacity>
+                            <TouchableOpacity onPress={() => navigation.navigate('DetalhesServicos3', { item: modulo })}>
+                            <View style={styles.navbar}>
+                            <Text style={styles.text}>{modulo.sala2}</Text>
+                                    <FontAwesome name="circle" size={10} color="green" />
+
+                                </View>
+                                </TouchableOpacity>
                         </View>
 
                     </View>
@@ -161,6 +174,7 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 16,
         color: '#0805A3',
+        marginRight: 200
     },
 
     list: {

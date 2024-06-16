@@ -7,14 +7,17 @@ import {
     TouchableOpacity,
     Pressable,
     Keyboard,
-    Image
+    Image,
+    TextInput
 } from 'react-native';
 
 import { AntDesign } from '@expo/vector-icons';
+import ImageModal from "../components/ImageModal";
 
 export default function DetalhesServicos3({ navigation, route }) {
 
     const modulo = route.params.item;
+    const [modalVisible, setModalVisible] = useState(false);
 
     return (
         <Pressable onPress={Keyboard.dismiss} style={styles.container}>
@@ -43,9 +46,24 @@ export default function DetalhesServicos3({ navigation, route }) {
                     <Text style={styles.input}>{modulo.descricao2}</Text>
 
                     <Text style={styles.textForm}>Anexos:</Text>
-                    <View style={styles.item}>
+                    <TouchableOpacity style={styles.item} onPress={() => setModalVisible(true)}>
                         <Image source={modulo.projetor} style={styles.imagem} />
-                    </View>
+                    </TouchableOpacity>
+
+                    <ImageModal 
+                        modalVisible={modalVisible} 
+                        setModalVisible={setModalVisible} 
+                        imageSource={modulo.projetor} 
+                    />
+
+                    <Text style={styles.textForm}>Status:</Text>
+                    <TextInput style={styles.input2} placeholder={modulo.status2} keyboardType="ascii-capable" />
+
+                    <TouchableOpacity
+                        style={styles.buttonCadastrar}
+                    >
+                        <Text style={styles.buttonText}>Salvar</Text>
+                    </TouchableOpacity>
                 </View>
 
             </ImageBackground>
@@ -64,8 +82,8 @@ const styles = StyleSheet.create({
         color: "#FFFFFF",
         fontSize: 30,
         textAlign: "center",
-        paddingBottom: 30,
-        marginTop: 50
+        paddingBottom: 10,
+        marginTop: 30
     },
 
     imageBackground: {
@@ -79,9 +97,9 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFFFFF",
         paddingTop: 20,
         width: "85%",
-        height: "60%",
+        height: "70%",
         borderRadius: 30,
-        marginBottom: 70,
+        marginBottom: 10,
         marginTop: 20
     },
 
@@ -99,6 +117,17 @@ const styles = StyleSheet.create({
         margin: 12,
         paddingLeft: 15,
         paddingTop: 15,
+        marginLeft: 16,
+    },
+
+    input2: {
+        width: "90%",
+        borderRadius: 15,
+        backgroundColor: "#ECEBFD",
+        height: 50,
+        margin: 12,
+        paddingLeft: 15,
+        paddingTop: 3,
         marginLeft: 16,
     },
 
@@ -160,6 +189,7 @@ const styles = StyleSheet.create({
         paddingTop: 15,
         marginLeft: 16,
         width: "90%",
+        marginBottom: 12
     },
 
     text: {
@@ -176,5 +206,23 @@ const styles = StyleSheet.create({
         width: 100,
         height: 100,
         marginTop: 8,
+        borderRadius: 10,
+    },
+
+    buttonCadastrar: {
+        borderRadius: 15,
+        alignItems: "center",
+        justifyContent: "center",
+        width: "50%",
+        backgroundColor: "#211DFF",
+        paddingTop: 14,
+        paddingBottom: 14,
+        marginLeft: 80,
+        marginTop: 10
+    },
+
+    buttonText: {
+        color: "#FFFFFF",
+        fontSize: 22,
     },
 });

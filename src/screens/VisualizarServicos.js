@@ -26,11 +26,13 @@ export default function VisualizarServicos() {
       id: 1,
       nome: 'Administrativo',
       sala1: 'Lab 23',
-      sala2: 'Sala de Dança',
+      sala2: 'Lab 24',
       descricao1: 'Ar condiconado quebrado',
       descricao2: 'Projetor quebrado',
       projetor: require('../assets/Projetor.jpg'),
-      ar: require('../assets/Arcondicionado.webp')
+      ar: require('../assets/Arcondicionado.webp'),
+      status1: 'Em andamento',
+      status2: 'Feito'
     },
 
     {
@@ -41,7 +43,9 @@ export default function VisualizarServicos() {
       descricao1: 'Ar condiconado quebrado',
       descricao2: 'Projetor quebrado',
       projetor: require('../assets/Projetor.jpg'),
-      ar: require('../assets/Arcondicionado.webp')
+      ar: require('../assets/Arcondicionado.webp'),
+      status1: 'Em andamento',
+      status2: 'Feito'
     },
 
     {
@@ -52,7 +56,9 @@ export default function VisualizarServicos() {
       descricao1: 'Ar condiconado quebrado',
       descricao2: 'Projetor quebrado',
       projetor: require('../assets/Projetor.jpg'),
-      ar: require('../assets/Arcondicionado.webp')
+      ar: require('../assets/Arcondicionado.webp'),
+      status1: 'Em andamento',
+      status2: 'Feito'
     }
   ]);
 

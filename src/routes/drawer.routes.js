@@ -32,14 +32,14 @@ export default function DrawerRoutes() {
                 }}
             />
 
-            <Drawer.Screen
+            {/* <Drawer.Screen
                 name="Configuracoes"
                 component={Configuracoes}
                 options={{
                     drawerIcon: ({ color, size }) => <AntDesign name="setting" size={size} color={color} />,
                     drawerLabel: "Configurações"
                 }}
-            />
+            /> */}
         </Drawer.Navigator>
     )
 }
