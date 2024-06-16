@@ -1,9 +1,13 @@
+import React, { useState } from "react"
 import { StyleSheet, Text, View, ImageBackground, TouchableOpacity, Image } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
 import Foto from '../assets/Perfil.jpg'
+import MSair from '../components/MSair';
 
 export default function Perfil({ navigation }) {
+
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -31,6 +35,14 @@ export default function Perfil({ navigation }) {
 
             <Text style={styles.textForm}>Tipo de usuário:</Text>
             <Text style={styles.input}>Administrador</Text>
+
+            <TouchableOpacity
+            style={styles.button}>
+            <Text style={styles.buttonCancelar} onPress={() => setModalVisible(true)}>Sair da conta</Text>
+          </TouchableOpacity>
+
+          <MSair visible={modalVisible} onClose={() => setModalVisible(false)}/>
+
           </View>
         </View>
       </ImageBackground>
@@ -50,15 +62,14 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: "center",
     paddingBottom: 30,
-    marginTop: 50
+    marginTop: 30
   },
 
   formContext: {
     backgroundColor: "#FFFFFF",
     width: "85%",
-    height: "65%",
+    height: "70%",
     borderRadius: 30,
-    marginBottom: 10,
     alignItems: "center",
   },
 
@@ -116,7 +127,7 @@ const styles = StyleSheet.create({
     borderRadius: 150,
     backgroundColor: "#ECEBFD",
     width: "41%",
-    height: "24%",
+    height: "22%",
     alignItems: "center",
     paddingBottom: 10
   },
@@ -131,5 +142,15 @@ const styles = StyleSheet.create({
     height: 120,
     marginTop: 7,
     borderRadius: 100,
+},
+
+button: {
+  paddingBottom: 20
+},
+
+buttonCancelar: {
+  color: "#AC1515",
+  fontSize: 15,
+  textDecorationLine: "underline"
 },
 });
