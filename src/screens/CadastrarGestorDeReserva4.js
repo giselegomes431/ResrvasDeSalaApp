@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, ImageBackground, TouchableOpacity, SafeAreaView } from 'react-native';
-import { Agenda } from 'react-native-calendars';
+import { Agenda, LocaleConfig } from 'react-native-calendars';
 import { AntDesign } from '@expo/vector-icons';
+
+LocaleConfig.locales['pt-BR'] = {
+    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+    today: 'Hoje'
+};
+
+LocaleConfig.defaultLocale = 'pt-BR';
 
 export default function CadastrarGestorDeReserva4({ navigation, route }) {
     const { turnos } = route.params || {};
     const [items, setItems] = useState({});
-    const [locale, setLocale] = useState({
-        monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-        monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-        dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
-        dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb']
-    });
 
     useEffect(() => {
         if (turnos) {
@@ -36,7 +40,7 @@ export default function CadastrarGestorDeReserva4({ navigation, route }) {
                     }
 
                     if (eventosDia.length > 0) {
-                        const strTime = timeToString(new Date().getTime());
+                        const strTime = getNextWeekdayDate(dia);
                         if (!horariosSelecionados[strTime]) {
                             horariosSelecionados[strTime] = [];
                         }
@@ -74,10 +78,28 @@ export default function CadastrarGestorDeReserva4({ navigation, route }) {
         return date.toISOString().split('T')[0];
     };
 
+    const getNextWeekdayDate = (weekday) => {
+        const dayMap = {
+            'Domingo': 0,
+            'Segunda': 1,
+            'Terça': 2,
+            'Quarta': 3,
+            'Quinta': 4,
+            'Sexta': 5,
+            'Sábado': 6
+        };
+        const today = new Date();
+        const todayDay = today.getDay();
+        const targetDay = dayMap[weekday];
+        const daysUntilNext = (targetDay - todayDay + 7) % 7;
+        const nextDate = new Date(today.getTime() + daysUntilNext * 24 * 60 * 60 * 1000);
+        return timeToString(nextDate.getTime());
+    };
+
     return (
         <View style={styles.container}>
             <ImageBackground
-                source={require('../assets/Fundo1.png')}
+                source={require('../assets/Fundo.png')}
                 style={styles.imageBackground}>
                 <View style={styles.navbar}>
                     <TouchableOpacity onPress={() => navigation.openDrawer()}>
@@ -89,7 +111,7 @@ export default function CadastrarGestorDeReserva4({ navigation, route }) {
                     <Agenda
                         items={items}
                         loadItemsForMonth={loadItems}
-                        selected={'2024-06-16'}
+                        selected={timeToString(new Date().getTime())}
                         renderItem={renderItem}
                         theme={{
                             agendaDayTextColor: 'black',
@@ -97,7 +119,6 @@ export default function CadastrarGestorDeReserva4({ navigation, route }) {
                             agendaTodayColor: 'red',
                             agendaKnobColor: 'blue'
                         }}
-                        locale={locale}
                     />
                 </SafeAreaView>
             </ImageBackground>
@@ -134,3 +155,4 @@ const styles = StyleSheet.create({
         marginTop: 17,
     },
 });
+
