@@ -42,7 +42,7 @@ export default function DetalhesServicos2({ navigation, route }) {
                     <Text style={styles.textForm}>Modulo:</Text>
                     <Text style={styles.input}>{modulo.nome}</Text>
 
-                    <Text style={styles.textForm}>Desrição:</Text>
+                    <Text style={styles.textForm}>Descrição:</Text>
                     <Text style={styles.input}>{modulo.descricao1}</Text>
 
                     <Text style={styles.textForm}>Anexos:</Text>
