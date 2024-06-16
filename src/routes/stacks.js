@@ -14,6 +14,7 @@ import StacksCEspaco from "./stacksCEspaco";
 import CadastrarGestorDeReserva from "../screens/CadastrarGestorDeReserva";
 import CadastrarGestorDeReserva2 from "../screens/CadastrarGestorDeReserva2";
 import CadastrarGestorDeReserva3 from "../screens/CadastrarGestorDeReserva3";
+import CadastrarGestorDeReserva4 from "../screens/CadastrarGestorDeReserva4";
 import CadastrarGestorDeServico from "../screens/CadastrarGestorDeServico";
 import CadastrarGestorDeServico2 from "../screens/CadastrarGestorDeServico2";
 import CadastrarGestorDeServico3 from "../screens/CadastrarGestorDeServico3";
@@ -97,6 +98,11 @@ export default function Stacks() {
             <Stack.Screen
                 name="CadastrarGestorDeReserva3"
                 component={CadastrarGestorDeReserva3}>
+            </Stack.Screen>
+
+            <Stack.Screen
+                name="CadastrarGestorDeReserva4"
+                component={CadastrarGestorDeReserva4}>
             </Stack.Screen>
 
             <Stack.Screen

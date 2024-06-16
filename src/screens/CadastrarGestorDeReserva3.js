@@ -28,6 +28,8 @@ export default function CadastrarGestorDeReserva3({ navigation }) {
         Sexta: { checked: false, turnos: { manha: false, tarde: false, noite: false }, horarios: { manha: { inicio: '', termino: '' }, tarde: { inicio: '', termino: '' }, noite: { inicio: '', termino: '' } } },
         Sábado: { checked: false, turnos: { manha: false, tarde: false, noite: false }, horarios: { manha: { inicio: '', termino: '' }, tarde: { inicio: '', termino: '' }, noite: { inicio: '', termino: '' } } },
     });
+    
+
 
     function verification() {
         if (!nome.trim() || !email.trim() || !telefone.trim()) {
@@ -160,7 +162,7 @@ export default function CadastrarGestorDeReserva3({ navigation }) {
                                 </View>
                             ))}
                             <TouchableOpacity
-                                style={styles.buttonCadastrar}
+                                style={styles.buttonCadastrar} onPress={() => navigation.navigate('CadastrarGestorDeReserva4', { turnos: turnos })}
                             >
                                 <Text style={styles.buttonText}>Cadastrar</Text>
                             </TouchableOpacity>

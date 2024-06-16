@@ -61,21 +61,14 @@ const UploadModal = ({ visible, onClose, onFileUpload }) => {
         {!cameraVisible ? (
           <View style={styles.modalView}>
             <TouchableOpacity style={styles.button} onPress={openGallery}>
-              <Text style={styles.textStyle}>Select from Gallery</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => setCameraVisible(true)}
-            >
-              <Text style={styles.textStyle}>Take a Photo</Text>
+              <Text style={styles.textStyle}>Adicionar foto da galeria</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
               style={[styles.button, styles.buttonClose]}
               onPress={onClose}
             >
-              <Text style={styles.textStyle}>Cancel</Text>
+              <Text style={styles.textStyle}>Cancelar</Text>
             </TouchableOpacity>
           </View>
         ) : (
@@ -120,7 +113,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   button: {
-    backgroundColor: '#2196F3',
+    backgroundColor: '#211DFF',
     borderRadius: 10,
     padding: 10,
     margin: 10,
