@@ -12,8 +12,9 @@ import {
 } from 'react-native';
 
 import { AntDesign } from '@expo/vector-icons';
+import UploadModal from "../components/UploadModal";
 
-export default function SolicitarServico({ navigation }) {
+export default function SolicitarServico2({ navigation }) {
 
     const [errorMessage, setErrorMessage] = useState(null)
     const [nome, setNome] = useState("")
@@ -21,6 +22,8 @@ export default function SolicitarServico({ navigation }) {
     const [telefone, setTelefone] = useState("")
     const [professor, setProfessor] = useState(null)
     const [professores, setProfessores] = useState([])
+    const [modalVisible, setModalVisible] = useState(false);
+    const [files, setFiles] = useState([]);
 
     function guardarProfessores() {
         setProfessores((arr) => [...arr, { id: new Date().getTime(), professor: nome }])
@@ -42,6 +45,10 @@ export default function SolicitarServico({ navigation }) {
         verification()
         navigation.navigate('ConsultarProfessores', { professores: professores })
         console.log(setProfessores)
+    }
+
+    function handleFileUpload(newFile) {
+        setFiles((prevFiles) => [...prevFiles, newFile]);
     }
 
     return (
@@ -66,36 +73,39 @@ export default function SolicitarServico({ navigation }) {
                 </View>
 
                 <View style={styles.formContext}>
-                    <View style={styles.box}>
-                        <Text style={styles.textForm}>Módulo:</Text>
-                        <Text style={styles.errorMessage}>{errorMessage}</Text>
-                    </View>
 
                     <TextInput
-                        placeholder=""
+                        placeholder="Descreva aqui a sua solicitação de manutenção..."
                         keyboardType="ascii-capable"
                         style={styles.input}
                         onChangeText={setNome}
                         value={nome}
                     />
 
-                    <View style={styles.box}>
-                        <Text style={styles.textForm}>Espaço:</Text>
-                        <Text style={styles.errorMessage}>{errorMessage}</Text>
-                    </View>
+                    <View style={styles.navbar2}>
+                        <TouchableOpacity
+                            style={styles.buttonAnexar}
+                            onPress={() => setModalVisible(true)}
+                        >
+                            <Text style={styles.textAnexar} onPress={() => navigation.navigate('SolicitarServico2')}>Anexar arquivo</Text>
+                            <AntDesign name="download" size={11} color="#0805A3" />
+                        </TouchableOpacity>
 
-                    <TextInput
-                        placeholder=""
-                        keyboardType="ascii-capable"
-                        style={styles.input}
-                        onChangeText={setEmail}
-                        value={email}
-                    />
+                        <UploadModal 
+                            visible={modalVisible} 
+                            onClose={() => setModalVisible(false)} 
+                            onFileUpload={handleFileUpload} 
+                        />
+
+                        <View style={styles.anexos}>
+                            <Text style={styles.anexosText}>{files.length} Arquivo(s) anexado(s)!</Text>
+                        </View>
+                    </View>
 
                     <TouchableOpacity
                         style={styles.buttonCadastrar}
                     >
-                        <Text style={styles.buttonText} onPress={() => navigation.navigate('SolicitarServico2')}>Continuar</Text>
+                        <Text style={styles.buttonText} onPress={() => navigation.navigate('SolicitarServico2')}>Solicitar</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -115,7 +125,7 @@ const styles = StyleSheet.create({
         color: "#FFFFFF",
         fontSize: 30,
         textAlign: "center",
-        marginTop: 100
+        marginTop: 40
     },
 
     textTitle2: {
@@ -136,7 +146,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFFFFF",
         paddingTop: 20,
         width: "85%",
-        height: "40%",
+        height: "60%",
         borderRadius: 30,
         marginBottom: 50
     },
@@ -149,12 +159,13 @@ const styles = StyleSheet.create({
 
     input: {
         width: "90%",
+        height: "60%",
         borderRadius: 15,
         backgroundColor: "#ECEBFD",
-        height: 50,
         margin: 12,
-        paddingLeft: 15,
-        marginLeft: 16
+        marginLeft: 16,
+        paddingBottom: 230,
+        paddingLeft: 16
     },
 
     buttonCadastrar: {
@@ -166,7 +177,7 @@ const styles = StyleSheet.create({
         paddingTop: 14,
         paddingBottom: 14,
         marginLeft: 80,
-        margin: 25,
+        margin: 20,
     },
 
     buttonText: {
@@ -193,5 +204,51 @@ const styles = StyleSheet.create({
     navbar: {
         flexDirection: 'row',
         alignItems: 'center',
-    }
+        marginTop: 30
+    },
+
+    buttonAnexar: {
+        borderRadius: 15,
+        flexDirection: "row",
+        alignItems: 'center',
+        width: "40%",
+        backgroundColor: "#ECEBFD",
+        paddingTop: 14,
+        paddingBottom: 14,
+        marginLeft: 8,
+        margin: 15,
+        paddingLeft: 7
+    },
+
+    textAnexar: {
+        color: "#0805A3",
+        fontSize: 12,
+        paddingRight: 10,
+        paddingLeft: 10
+    },
+
+    anexos: {
+        borderRadius: 15,
+        flexDirection: "row",
+        alignItems: 'center',
+        width: "50%",
+        backgroundColor: "#ECEBFD",
+        paddingTop: 14,
+        paddingBottom: 14,
+        marginLeft: 2,
+        margin: 15,
+        paddingLeft: 7
+    },
+
+    anexosText: {
+        color: "#0805A3",
+        fontSize: 12,
+        paddingRight: 10,
+        paddingLeft: 10
+    },
+
+    navbar2: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
 });
