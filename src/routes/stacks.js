@@ -20,6 +20,10 @@ import CadastrarGestorDeServico2 from "../screens/CadastrarGestorDeServico2";
 import CadastrarGestorDeServico3 from "../screens/CadastrarGestorDeServico3";
 import SolicitarServico from "../screens/SolicitarServiço";
 import SolicitarServico2 from "../screens/SolicitarServiço2";
+import VisualizarServicos from "../screens/VisualizarServicos";
+import DetalhesServicos from "../screens/DetalhesServicos";
+import DetalhesServicos2 from "../screens/DetalhesServicos2";
+import DetalhesServicos3 from "../screens/DetalhesServicos3";
 
 const Stack = createNativeStackNavigator();
 
@@ -128,6 +132,26 @@ export default function Stacks() {
             <Stack.Screen
                 name="SolicitarServico2"
                 component={SolicitarServico2}>
+            </Stack.Screen>
+
+            <Stack.Screen
+                name="VisualizarServicos"
+                component={VisualizarServicos}>
+            </Stack.Screen>
+
+            <Stack.Screen
+                name="DetalhesServicos"
+                component={DetalhesServicos}>
+            </Stack.Screen>
+
+            <Stack.Screen
+                name="DetalhesServicos2"
+                component={DetalhesServicos2}>
+            </Stack.Screen>
+
+            <Stack.Screen
+                name="DetalhesServicos3"
+                component={DetalhesServicos3}>
             </Stack.Screen>
 
         </Stack.Navigator>

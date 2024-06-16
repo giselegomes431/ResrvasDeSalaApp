@@ -25,19 +25,12 @@ export default function Manutencao({ navigation }) {
               Solicitar Serviço</Text>
           </TouchableOpacity>
 
-          {/* <TouchableOpacity
-            style={styles.buttonCadastrar}
-            onPress={() => navigation.navigate('CadastrarSetor')}
-          >
-            <Text style={styles.buttonText}>Setor</Text>
-          </TouchableOpacity>
-
           <TouchableOpacity
             style={styles.buttonCadastrar}
-            onPress={() => navigation.navigate('stacksEspaco')}
+            onPress={() => navigation.navigate('VisualizarServicos')}
           >
-            <Text style={styles.buttonText}>Espaço</Text>
-          </TouchableOpacity> */}
+            <Text style={styles.buttonText}>Visualizar Serviços</Text>
+          </TouchableOpacity>
 
         </View>
       </ImageBackground>
